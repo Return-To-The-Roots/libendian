@@ -1,4 +1,4 @@
-// $Id: main.h 7810 2012-02-03 07:20:20Z FloSoft $
+// $Id: endianess.h 7810 2012-02-03 07:20:20Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -16,17 +16,24 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
-#ifndef MAIN_H_INCLUDED
-#define MAIN_H_INCLUDED
+#ifndef ENDIANESS_H_INCLUDED
+#define ENDIANESS_H_INCLUDED
 
 #pragma once
 
-#ifdef HAVE_CONFIG_H
-#	include "../config.h"
-#endif // HAVE_CONFIG_H
+#if defined _WIN32 || defined __CYGWIN__
+#	undef LITTLE_ENDIAN
+#	undef BIG_ENDIAN
+#	undef BYTE_ORDER
+#	define LITTLE_ENDIAN 1234
+#	define BIG_ENDIAN    4321
+#	define BYTE_ORDER    LITTLE_ENDIAN
+#else
+#	include <sys/param.h>
+#endif // !_WIN32
 
-#include <cstdio>
+#if BYTE_ORDER != LITTLE_ENDIAN && BYTE_ORDER != BIG_ENDIAN
+#	error "Sorry your Byteorder is not supported by this Library"
+#endif // BYTE_ORDER != LITTLE_ENDIAN && BYTE_ORDER != BIG_ENDIAN
 
-#include "endianess.h"
-
-#endif // MAIN_H_INCLUDED
+#endif // ENDIANESS_H_INCLUDED
