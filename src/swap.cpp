@@ -1,4 +1,4 @@
-// $Id: swap.cpp 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: swap.cpp 7807 2012-02-03 07:08:56Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -71,7 +71,7 @@ unsigned short libendian::swap_us(unsigned short us)
  */
 int libendian::swap_i(int i)
 {
-	return swap_ui((unsigned short)i);
+	return swap_ui((unsigned int)i);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
