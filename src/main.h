@@ -1,4 +1,4 @@
-// $Id: main.h 7810 2012-02-03 07:20:20Z FloSoft $
+// $Id: main.h 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef HAVE_CONFIG_H
-#	include "../config.h"
+#   include "../config.h"
 #endif // HAVE_CONFIG_H
 
 #include <cstdio>

@@ -1,4 +1,4 @@
-// $Id: read_int.cpp 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: read_int.cpp 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -23,7 +23,7 @@
 #include "libendian.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest einen Little-Endian kodierten Integer aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielinteger
@@ -33,13 +33,13 @@
  *
  *  @author FloSoft
  */
-int libendian::le_read_i(int *to, FILE *file)
+int libendian::le_read_i(int* to, FILE* file)
 {
-	return le_read_ui( (unsigned int*)to, file);
+    return le_read_ui( (unsigned int*)to, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest einen Little-Endian kodierten Unsigned Integer aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielinteger
@@ -49,28 +49,28 @@ int libendian::le_read_i(int *to, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::le_read_ui(unsigned int *to, FILE *file)
+int libendian::le_read_ui(unsigned int* to, FILE* file)
 {
-	if(to == NULL || file == NULL)
-		return -1;
+    if(to == NULL || file == NULL)
+        return -1;
 
-	// Integer einlesen
-	if(fread(to, 1, 4, file) != 4)
-		return 1;
+    // Integer einlesen
+    if(fread(to, 1, 4, file) != 4)
+        return 1;
 
-	// müssen wir konvertieren?
-	if(BYTE_ORDER != LITTLE_ENDIAN)
-	{
-		// ja, dann tauschen
-		*to = swap_ui(*to);
-	}
+    // müssen wir konvertieren?
+    if(BYTE_ORDER != LITTLE_ENDIAN)
+    {
+        // ja, dann tauschen
+        *to = swap_ui(*to);
+    }
 
-	// alles ok
-	return 0;
+    // alles ok
+    return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest einen Big-Endian kodierten Integer aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielinteger
@@ -80,13 +80,13 @@ int libendian::le_read_ui(unsigned int *to, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::be_read_i(int *to, FILE *file)
+int libendian::be_read_i(int* to, FILE* file)
 {
-	return be_read_ui( (unsigned int*)to, file);
+    return be_read_ui( (unsigned int*)to, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest einen Big-Endian kodierten Unsigned Integer aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielinteger
@@ -96,22 +96,22 @@ int libendian::be_read_i(int *to, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::be_read_ui(unsigned int *to, FILE *file)
+int libendian::be_read_ui(unsigned int* to, FILE* file)
 {
-	if(to == NULL || file == NULL)
-		return -1;
+    if(to == NULL || file == NULL)
+        return -1;
 
-	// Integer einlesen
-	if(fread(to, 1, 4, file) != 4)
-		return 1;
+    // Integer einlesen
+    if(fread(to, 1, 4, file) != 4)
+        return 1;
 
-	// müssen wir konvertieren?
-	if(BYTE_ORDER != BIG_ENDIAN)
-	{
-		// ja, dann tauschen
-		*to = swap_ui(*to);
-	}
+    // müssen wir konvertieren?
+    if(BYTE_ORDER != BIG_ENDIAN)
+    {
+        // ja, dann tauschen
+        *to = swap_ui(*to);
+    }
 
-	// alles ok
-	return 0;
+    // alles ok
+    return 0;
 }

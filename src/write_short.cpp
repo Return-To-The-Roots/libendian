@@ -1,4 +1,4 @@
-// $Id: write_short.cpp 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: write_short.cpp 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -23,7 +23,7 @@
 #include "libendian.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt einen Little-Endian kodierten Short in eine Datei.
  *
  *  @param[out] from  Pointer auf Quellshort
@@ -33,13 +33,13 @@
  *
  *  @author FloSoft
  */
-int libendian::le_write_s(short from, FILE *file)
+int libendian::le_write_s(short from, FILE* file)
 {
-	return le_write_us( (unsigned short)from, file);
+    return le_write_us( (unsigned short)from, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt einen Little-Endian kodierten Unsigned Short in eine Datei.
  *
  *  @param[out] from  Pointer auf Quellshort
@@ -49,28 +49,28 @@ int libendian::le_write_s(short from, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::le_write_us(unsigned short from, FILE *file)
+int libendian::le_write_us(unsigned short from, FILE* file)
 {
-	if(file == NULL)
-		return -1;
+    if(file == NULL)
+        return -1;
 
-	// müssen wir konvertieren?
-	if(BYTE_ORDER != LITTLE_ENDIAN)
-	{
-		// ja, dann tauschen
-		from = swap_us(from);
-	}
+    // müssen wir konvertieren?
+    if(BYTE_ORDER != LITTLE_ENDIAN)
+    {
+        // ja, dann tauschen
+        from = swap_us(from);
+    }
 
-	// Integer einlesen
-	if(fwrite(&from, 1, 2, file) != 2)
-		return 1;
+    // Integer einlesen
+    if(fwrite(&from, 1, 2, file) != 2)
+        return 1;
 
-	// alles ok
-	return 0;
+    // alles ok
+    return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt einen Big-Endian kodierten Short in eine Datei.
  *
  *  @param[out] from  Pointer auf Quellshort
@@ -80,13 +80,13 @@ int libendian::le_write_us(unsigned short from, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::be_write_s(short from, FILE *file)
+int libendian::be_write_s(short from, FILE* file)
 {
-	return be_write_us( (unsigned short)from, file);
+    return be_write_us( (unsigned short)from, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt einen Big-Endian kodierten Unsigned Short in eine Datei.
  *
  *  @param[out] from  Pointer auf Quellshort
@@ -96,22 +96,22 @@ int libendian::be_write_s(short from, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::be_write_us(unsigned short from, FILE *file)
+int libendian::be_write_us(unsigned short from, FILE* file)
 {
-	if(file == NULL)
-		return -1;
+    if(file == NULL)
+        return -1;
 
-	// müssen wir konvertieren?
-	if(BYTE_ORDER != BIG_ENDIAN)
-	{
-		// ja, dann tauschen
-		from = swap_us(from);
-	}
+    // müssen wir konvertieren?
+    if(BYTE_ORDER != BIG_ENDIAN)
+    {
+        // ja, dann tauschen
+        from = swap_us(from);
+    }
 
-	// Integer einlesen
-	if(fwrite(&from, 1, 2, file) != 2)
-		return 1;
+    // Integer einlesen
+    if(fwrite(&from, 1, 2, file) != 2)
+        return 1;
 
-	// alles ok
-	return 0;
+    // alles ok
+    return 0;
 }

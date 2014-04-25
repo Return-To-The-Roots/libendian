@@ -1,4 +1,4 @@
-// $Id: endianess.h 7810 2012-02-03 07:20:20Z FloSoft $
+// $Id: endianess.h 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -22,18 +22,18 @@
 #pragma once
 
 #if defined _WIN32 || defined __CYGWIN__
-#	undef LITTLE_ENDIAN
-#	undef BIG_ENDIAN
-#	undef BYTE_ORDER
-#	define LITTLE_ENDIAN 1234
-#	define BIG_ENDIAN    4321
-#	define BYTE_ORDER    LITTLE_ENDIAN
+#   undef LITTLE_ENDIAN
+#   undef BIG_ENDIAN
+#   undef BYTE_ORDER
+#   define LITTLE_ENDIAN 1234
+#   define BIG_ENDIAN    4321
+#   define BYTE_ORDER    LITTLE_ENDIAN
 #else
-#	include <sys/param.h>
+#   include <sys/param.h>
 #endif // !_WIN32
 
 #if BYTE_ORDER != LITTLE_ENDIAN && BYTE_ORDER != BIG_ENDIAN
-#	error "Sorry your Byteorder is not supported by this Library"
+#   error "Sorry your Byteorder is not supported by this Library"
 #endif // BYTE_ORDER != LITTLE_ENDIAN && BYTE_ORDER != BIG_ENDIAN
 
 #endif // ENDIANESS_H_INCLUDED

@@ -1,4 +1,4 @@
-// $Id: read_char.cpp 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: read_char.cpp 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -23,7 +23,7 @@
 #include "libendian.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest Little-Endian kodierte Chars aus einer Datei.
  *
  *  @param[out] to    Zielpuffer
@@ -34,13 +34,13 @@
  *
  *  @author FloSoft
  */
-int libendian::le_read_c(char *const to, unsigned int count, FILE *file)
+int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
 {
-	return le_read_uc( (unsigned char*)to, count, file);
+    return le_read_uc( (unsigned char*)to, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest Little-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] to    Zielpuffer
@@ -51,17 +51,17 @@ int libendian::le_read_c(char *const to, unsigned int count, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::le_read_uc(unsigned char *const to, unsigned int count, FILE *file)
+int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* file)
 {
-	if(to == NULL || file == NULL)
-		return -1;
+    if(to == NULL || file == NULL)
+        return -1;
 
-	// chars können wir ohne Konvertierung einlesen
-	return (int)fread(to, 1, count, file);
+    // chars können wir ohne Konvertierung einlesen
+    return (int)fread(to, 1, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest Big-Endian kodierte Chars aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielchar(s)
@@ -72,13 +72,13 @@ int libendian::le_read_uc(unsigned char *const to, unsigned int count, FILE *fil
  *
  *  @author FloSoft
  */
-int libendian::be_read_c(char *const to, unsigned int count, FILE *file)
+int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
 {
-	return be_read_uc( (unsigned char*)to, count, file);
+    return be_read_uc( (unsigned char*)to, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  liest Big-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielchar(s)
@@ -89,11 +89,11 @@ int libendian::be_read_c(char *const to, unsigned int count, FILE *file)
  *
  *  @author FloSoft
  */
-int libendian::be_read_uc(unsigned char *const to, unsigned int count, FILE *file)
+int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* file)
 {
-	if(to == NULL || file == NULL)
-		return -1;
+    if(to == NULL || file == NULL)
+        return -1;
 
-	// chars können wir ohne Konvertierung einlesen
-	return (int)fread(to, 1, count, file);
+    // chars können wir ohne Konvertierung einlesen
+    return (int)fread(to, 1, count, file);
 }

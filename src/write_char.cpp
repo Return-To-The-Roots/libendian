@@ -1,4 +1,4 @@
-// $Id: write_char.cpp 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: write_char.cpp 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -34,13 +34,13 @@
  *
  *  @author FloSoft
  */
-int libendian::le_write_c(const char *const from, unsigned int count, FILE *file)
+int libendian::le_write_c(const char* const from, unsigned int count, FILE* file)
 {
-	return le_write_uc( (const unsigned char*)from, count, file);
+    return le_write_uc( (const unsigned char*)from, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt Little-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] from  Quellpuffer
@@ -51,13 +51,13 @@ int libendian::le_write_c(const char *const from, unsigned int count, FILE *file
  *
  *  @author FloSoft
  */
-int libendian::le_write_uc(const unsigned char *const from, unsigned int count, FILE *file)
+int libendian::le_write_uc(const unsigned char* const from, unsigned int count, FILE* file)
 {
-	if(from == NULL || file == NULL)
-		return -1;
+    if(from == NULL || file == NULL)
+        return -1;
 
-	// chars können wir ohne Konvertierung einlesen
-	return (int)fwrite(from, 1, count, file);
+    // chars können wir ohne Konvertierung einlesen
+    return (int)fwrite(from, 1, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -72,13 +72,13 @@ int libendian::le_write_uc(const unsigned char *const from, unsigned int count, 
  *
  *  @author FloSoft
  */
-int libendian::be_write_c(const char *const from, unsigned int count, FILE *file)
+int libendian::be_write_c(const char* const from, unsigned int count, FILE* file)
 {
-	return be_write_uc( (const unsigned char*)from, count, file);
+    return be_write_uc( (const unsigned char*)from, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  schreibt Big-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] from  Quellpuffer
@@ -89,11 +89,11 @@ int libendian::be_write_c(const char *const from, unsigned int count, FILE *file
  *
  *  @author FloSoft
  */
-int libendian::be_write_uc(const unsigned char *const from, unsigned int count, FILE *file)
+int libendian::be_write_uc(const unsigned char* const from, unsigned int count, FILE* file)
 {
-	if(from == NULL || file == NULL)
-		return -1;
+    if(from == NULL || file == NULL)
+        return -1;
 
-	// chars können wir ohne Konvertierung einlesen
-	return (int)fwrite(from, 1, count, file);
+    // chars können wir ohne Konvertierung einlesen
+    return (int)fwrite(from, 1, count, file);
 }

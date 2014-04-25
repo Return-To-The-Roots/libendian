@@ -1,4 +1,4 @@
-// $Id: libendian.h 7521 2011-09-08 20:45:55Z FloSoft $
+// $Id: libendian.h 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -24,95 +24,95 @@
 /// Die verschiedenen Big und ihre entsprechenden Little-Endian-Funktionen.
 namespace libendian
 {
-	/// Vertauscht die Bytes eines Shorts.
-	short swap_s(short s);
+    /// Vertauscht die Bytes eines Shorts.
+    short swap_s(short s);
 
-	/// Vertauscht die Bytes eines Unsigned Shorts.
-	unsigned short swap_us(unsigned short us);
+    /// Vertauscht die Bytes eines Unsigned Shorts.
+    unsigned short swap_us(unsigned short us);
 
-	/// Vertauscht die Bytes eines Ints.
-	int swap_i(int i);
+    /// Vertauscht die Bytes eines Ints.
+    int swap_i(int i);
 
-	/// Vertauscht die Bytes eines Unsigned Ints.
-	unsigned int swap_ui(unsigned int ui);
-
-
-	/// liest Little-Endian kodierte Chars aus einer Datei.
-	int le_read_c(char *const to, unsigned int count, FILE *file);
-
-	/// liest Little-Endian kodierte Unsigned Chars aus einer Datei.
-	int le_read_uc(unsigned char *const to, unsigned int count, FILE *file);
-
-	/// schreibt Little-Endian kodierte Chars aus einer Datei.
-	int le_write_c(const char *const from, unsigned int count, FILE *file);
-
-	/// schreibt Little-Endian kodierte Unsigned Chars aus einer Datei.
-	int le_write_uc(const unsigned char *const from, unsigned int count, FILE *file);
+    /// Vertauscht die Bytes eines Unsigned Ints.
+    unsigned int swap_ui(unsigned int ui);
 
 
-	/// liest Big-Endian kodierte Chars aus einer Datei.
-	int be_read_c(char *const to, unsigned int count, FILE *file);
+    /// liest Little-Endian kodierte Chars aus einer Datei.
+    int le_read_c(char* const to, unsigned int count, FILE* file);
 
-	/// liest Big-Endian kodierte Unsigned Chars aus einer Datei.
-	int be_read_uc(unsigned char *const to, unsigned int count, FILE *file);
+    /// liest Little-Endian kodierte Unsigned Chars aus einer Datei.
+    int le_read_uc(unsigned char* const to, unsigned int count, FILE* file);
 
-	/// schreibt Big-Endian kodierte Chars aus einer Datei.
-	int be_write_c(const char *const from, unsigned int count, FILE *file);
+    /// schreibt Little-Endian kodierte Chars aus einer Datei.
+    int le_write_c(const char* const from, unsigned int count, FILE* file);
 
-	/// schreibt Big-Endian kodierte Unsigned Chars aus einer Datei.
-	int be_write_uc(const unsigned char *const from, unsigned int count, FILE *file);
-
-
-	/// liest einen Little-Endian kodierten Integer aus einer Datei.
-	int le_read_i(int *to, FILE *file);
-
-	/// liest einen Little-Endian kodierten Unsigned Integer aus einer Datei.
-	int le_read_ui(unsigned int *to, FILE *file);
-
-	/// schreibt einen Little-Endian kodierten Integer in eine Datei.
-	int le_write_i(int from, FILE *file);
-
-	/// schreibt einen Little-Endian kodierten Unsigned Integer in eine Datei.
-	int le_write_ui(unsigned int from, FILE *file);
+    /// schreibt Little-Endian kodierte Unsigned Chars aus einer Datei.
+    int le_write_uc(const unsigned char* const from, unsigned int count, FILE* file);
 
 
-	/// liest einen Big-Endian kodierten Integer aus einer Datei.
-	int be_read_i(int *to, FILE *file);
+    /// liest Big-Endian kodierte Chars aus einer Datei.
+    int be_read_c(char* const to, unsigned int count, FILE* file);
 
-	/// liest einen Big-Endian kodierten Unsigned Integer aus einer Datei.
-	int be_read_ui(unsigned int *to, FILE *file);
+    /// liest Big-Endian kodierte Unsigned Chars aus einer Datei.
+    int be_read_uc(unsigned char* const to, unsigned int count, FILE* file);
 
-	/// schreibt einen Big-Endian kodierten Integer in eine Datei.
-	int be_write_i(int to, FILE *file);
+    /// schreibt Big-Endian kodierte Chars aus einer Datei.
+    int be_write_c(const char* const from, unsigned int count, FILE* file);
 
-	/// schreibt einen Big-Endian kodierten Unsigned Integer in eine Datei.
-	int be_write_ui(unsigned int to, FILE *file);
-
-
-	/// liest einen Little-Endian kodierten Short aus einer Datei.
-	int le_read_s(short *to, FILE *file);
-
-	/// liest einen Little-Endian kodierten Unsigned Short aus einer Datei.
-	int le_read_us(unsigned short *to, FILE *file);
-
-	/// schreibt einen Little-Endian kodierten Short in eine Datei.
-	int le_write_s(short from, FILE *file);
-
-	/// schreibt einen Little-Endian kodierten Unsigned Short in eine Datei.
-	int le_write_us(unsigned short from, FILE *file);
+    /// schreibt Big-Endian kodierte Unsigned Chars aus einer Datei.
+    int be_write_uc(const unsigned char* const from, unsigned int count, FILE* file);
 
 
-	/// liest einen Big-Endian kodierten Short aus einer Datei.
-	int be_read_s(short *to, FILE *file);
+    /// liest einen Little-Endian kodierten Integer aus einer Datei.
+    int le_read_i(int* to, FILE* file);
 
-	/// liest einen Big-Endian kodierten Unsigned Short aus einer Datei.
-	int be_read_us(unsigned short *to, FILE *file);
+    /// liest einen Little-Endian kodierten Unsigned Integer aus einer Datei.
+    int le_read_ui(unsigned int* to, FILE* file);
 
-	/// schreibt einen Big-Endian kodierten Short in eine Datei.
-	int be_write_s(short from, FILE *file);
+    /// schreibt einen Little-Endian kodierten Integer in eine Datei.
+    int le_write_i(int from, FILE* file);
 
-	/// schreibt einen Big-Endian kodierten Unsigned Short in eine Datei.
-	int be_write_us(unsigned short from, FILE *file);
+    /// schreibt einen Little-Endian kodierten Unsigned Integer in eine Datei.
+    int le_write_ui(unsigned int from, FILE* file);
+
+
+    /// liest einen Big-Endian kodierten Integer aus einer Datei.
+    int be_read_i(int* to, FILE* file);
+
+    /// liest einen Big-Endian kodierten Unsigned Integer aus einer Datei.
+    int be_read_ui(unsigned int* to, FILE* file);
+
+    /// schreibt einen Big-Endian kodierten Integer in eine Datei.
+    int be_write_i(int to, FILE* file);
+
+    /// schreibt einen Big-Endian kodierten Unsigned Integer in eine Datei.
+    int be_write_ui(unsigned int to, FILE* file);
+
+
+    /// liest einen Little-Endian kodierten Short aus einer Datei.
+    int le_read_s(short* to, FILE* file);
+
+    /// liest einen Little-Endian kodierten Unsigned Short aus einer Datei.
+    int le_read_us(unsigned short* to, FILE* file);
+
+    /// schreibt einen Little-Endian kodierten Short in eine Datei.
+    int le_write_s(short from, FILE* file);
+
+    /// schreibt einen Little-Endian kodierten Unsigned Short in eine Datei.
+    int le_write_us(unsigned short from, FILE* file);
+
+
+    /// liest einen Big-Endian kodierten Short aus einer Datei.
+    int be_read_s(short* to, FILE* file);
+
+    /// liest einen Big-Endian kodierten Unsigned Short aus einer Datei.
+    int be_read_us(unsigned short* to, FILE* file);
+
+    /// schreibt einen Big-Endian kodierten Short in eine Datei.
+    int be_write_s(short from, FILE* file);
+
+    /// schreibt einen Big-Endian kodierten Unsigned Short in eine Datei.
+    int be_write_us(unsigned short from, FILE* file);
 }
 
 #endif // !LIBENDIAN_H_INCLUDED

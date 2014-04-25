@@ -1,4 +1,4 @@
-// $Id: swap.cpp 7807 2012-02-03 07:08:56Z FloSoft $
+// $Id: swap.cpp 9358 2014-04-25 15:36:21Z FloSoft $
 //
 // Copyright (c) 2005 - 2011 Settlers Freaks (sf-team at siedler25.org)
 //
@@ -23,7 +23,7 @@
 #include "libendian.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  Vertauscht die Bytes eines Shorts.
  *
  *  @param[in] s der Short der umgedreht werden soll
@@ -34,11 +34,11 @@
  */
 short libendian::swap_s(short s)
 {
-	return swap_us((unsigned short)s);
+    return swap_us((unsigned short)s);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  Vertauscht die Bytes eines Unsigned Shorts.
  *
  *  @param[in] us der Unsigned Short der umgedreht werden soll
@@ -49,18 +49,18 @@ short libendian::swap_s(short s)
  */
 unsigned short libendian::swap_us(unsigned short us)
 {
-	static unsigned short z = 0;
-	unsigned char *zz = (unsigned char*)&z;
-	unsigned char *ss = (unsigned char*)&us;
+    static unsigned short z = 0;
+    unsigned char* zz = (unsigned char*)&z;
+    unsigned char* ss = (unsigned char*)&us;
 
-	zz[0] = ss[1];
-	zz[1] = ss[0];
+    zz[0] = ss[1];
+    zz[1] = ss[0];
 
-	return z;
+    return z;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  Vertauscht die Bytes eines Ints.
  *
  *  @param[in] s der Int der umgedreht werden soll
@@ -71,11 +71,11 @@ unsigned short libendian::swap_us(unsigned short us)
  */
 int libendian::swap_i(int i)
 {
-	return swap_ui((unsigned int)i);
+    return swap_ui((unsigned int)i);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-/** 
+/**
  *  Vertauscht die Bytes eines Unsigned Ints.
  *
  *  @param[in] us der Unsigned Int der umgedreht werden soll
@@ -86,14 +86,14 @@ int libendian::swap_i(int i)
  */
 unsigned int libendian::swap_ui(unsigned int ui)
 {
-	static unsigned int z = 0;
-	unsigned char *zz = (unsigned char*)&z;
-	unsigned char *ss = (unsigned char*)&ui;
+    static unsigned int z = 0;
+    unsigned char* zz = (unsigned char*)&z;
+    unsigned char* ss = (unsigned char*)&ui;
 
-	zz[3] = ss[0];
-	zz[2] = ss[1];
-	zz[1] = ss[2];
-	zz[0] = ss[3];
+    zz[3] = ss[0];
+    zz[2] = ss[1];
+    zz[1] = ss[2];
+    zz[0] = ss[3];
 
-	return z;
+    return z;
 }
