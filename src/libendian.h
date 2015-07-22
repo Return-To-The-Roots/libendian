@@ -21,6 +21,8 @@
 
 #pragma once
 
+#include <cstdio>
+
 /// Die verschiedenen Big und ihre entsprechenden Little-Endian-Funktionen.
 namespace libendian
 {
