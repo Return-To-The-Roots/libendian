@@ -27,7 +27,7 @@
  *  liest Little-Endian kodierte Chars aus einer Datei.
  *
  *  @param[out] to    Zielpuffer
- *  @param[in]  count Anzahl gewünschter Zeichen
+ *  @param[in]  count Anzahl gewÃ¼nschter Zeichen
  *  @param[in]  file  Datei aus der gelesen werden soll
  *
  *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
@@ -44,7 +44,7 @@ int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
  *  liest Little-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] to    Zielpuffer
- *  @param[in]  count Anzahl gewünschter Zeichen
+ *  @param[in]  count Anzahl gewÃ¼nschter Zeichen
  *  @param[in]  file  Datei aus der gelesen werden soll
  *
  *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
@@ -56,7 +56,7 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
     if(to == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // chars kÃ¶nnen wir ohne Konvertierung einlesen
     return (int)fread(to, 1, count, file);
 }
 
@@ -65,7 +65,7 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
  *  liest Big-Endian kodierte Chars aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielchar(s)
- *  @param[in]  count Anzahl gewünschter Zeichen
+ *  @param[in]  count Anzahl gewÃ¼nschter Zeichen
  *  @param[in]  file  Datei aus der gelesen werden soll
  *
  *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
@@ -82,7 +82,7 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
  *  liest Big-Endian kodierte Unsigned Chars aus einer Datei.
  *
  *  @param[out] to    Pointer auf Zielchar(s)
- *  @param[in]  count Anzahl gewünschter Zeichen
+ *  @param[in]  count Anzahl gewÃ¼nschter Zeichen
  *  @param[in]  file  Datei aus der gelesen werden soll
  *
  *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
@@ -94,6 +94,6 @@ int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* fil
     if(to == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // chars kÃ¶nnen wir ohne Konvertierung einlesen
     return (int)fread(to, 1, count, file);
 }
