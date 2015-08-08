@@ -24,13 +24,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest Little-Endian kodierte Chars aus einer Datei.
+ *  Reads Little-Endian encoded chars from a FILE.
  *
- *  @param[out] to    Zielpuffer
- *  @param[in]  count Anzahl gewünschter Zeichen
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    target buffer
+ *  @param[in]  count number of symbols to read
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
+ *  @return number of read bytes, -1 on error, 0 on EOF
  *
  *  @author FloSoft
  */
@@ -41,13 +41,13 @@ int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest Little-Endian kodierte Unsigned Chars aus einer Datei.
+ *  Reads Little-Endian encoded unsigned chars from a FILE.
  *
- *  @param[out] to    Zielpuffer
- *  @param[in]  count Anzahl gewünschter Zeichen
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    target buffer
+ *  @param[in]  count number of symbols to read
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
+ *  @return number of read bytes, -1 on error, 0 on EOF
  *
  *  @author FloSoft
  */
@@ -56,19 +56,19 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
     if(to == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // no need to convert chars
     return (int)fread(to, 1, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest Big-Endian kodierte Chars aus einer Datei.
+ *  Reads Big-Endian encoded chars from a FILE.
  *
- *  @param[out] to    Pointer auf Zielchar(s)
- *  @param[in]  count Anzahl gewünschter Zeichen
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target buffer
+ *  @param[in]  count number of symbols to read
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
+ *  @return number of read bytes, -1 on error, 0 on EOF
  *
  *  @author FloSoft
  */
@@ -79,13 +79,13 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest Big-Endian kodierte Unsigned Chars aus einer Datei.
+ *  Reads Big-Endian encoded unsigned chars from a FILE.
  *
- *  @param[out] to    Pointer auf Zielchar(s)
- *  @param[in]  count Anzahl gewünschter Zeichen
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target buffer
+ *  @param[in]  count number of symbols to read
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Anzahl der gelesenen Bytes, -1 bei Fehler, 0 bei EOF
+ *  @return number of read bytes, -1 on error, 0 on EOF
  *
  *  @author FloSoft
  */
@@ -94,6 +94,6 @@ int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* fil
     if(to == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // no need to convert chars
     return (int)fread(to, 1, count, file);
 }

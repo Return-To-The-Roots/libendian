@@ -24,13 +24,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt Little-Endian kodierte Chars aus einer Datei.
+ *  Writes Little-Endian encoded chars to a FILE.
  *
- *  @param[out] from  Quellpuffer
- *  @param[in]  count Anzahl zu schreibende Zeichen
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  source buffer
+ *  @param[in]  count number of symbols to write
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Anzahl der geschriebenen Bytes, -1 bei Fehler
+ *  @return number of written bytes, -1 on error
  *
  *  @author FloSoft
  */
@@ -41,13 +41,13 @@ int libendian::le_write_c(const char* const from, unsigned int count, FILE* file
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt Little-Endian kodierte Unsigned Chars aus einer Datei.
+ *  Writes Little-Endian encoded unsigned chars to a FILE.
  *
- *  @param[out] from  Quellpuffer
- *  @param[in]  count Anzahl zu schreibende Zeichen
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  source buffer
+ *  @param[in]  count number of symbols to write
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Anzahl der geschriebenen Bytes, -1 bei Fehler
+ *  @return number of written bytes, -1 on error
  *
  *  @author FloSoft
  */
@@ -56,19 +56,19 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned int count, 
     if(from == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // no need to convert chars
     return (int)fwrite(from, 1, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt Big-Endian kodierte Chars aus einer Datei.
+ *  Writes Big-Endian encoded chars to a FILE.
  *
- *  @param[out] from  Quellpuffer
- *  @param[in]  count Anzahl zu schreibende Zeichen
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  source buffer
+ *  @param[in]  count number of symbols to write
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Anzahl der geschriebenen Bytes, -1 bei Fehler
+ *  @return number of written bytes, -1 on error
  *
  *  @author FloSoft
  */
@@ -79,13 +79,13 @@ int libendian::be_write_c(const char* const from, unsigned int count, FILE* file
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt Big-Endian kodierte Unsigned Chars aus einer Datei.
+ *  Writes Big-Endian encoded unsigned chars to a FILE.
  *
- *  @param[out] from  Quellpuffer
- *  @param[in]  count Anzahl zu schreibende Zeichen
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  source buffer
+ *  @param[in]  count number of symbols to write
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Anzahl der geschriebenen Bytes, -1 bei Fehler
+ *  @return number of written bytes, -1 on error
  *
  *  @author FloSoft
  */
@@ -94,6 +94,6 @@ int libendian::be_write_uc(const unsigned char* const from, unsigned int count, 
     if(from == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // no need to convert chars
     return (int)fwrite(from, 1, count, file);
 }

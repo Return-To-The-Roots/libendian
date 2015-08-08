@@ -24,12 +24,12 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Little-Endian kodierten Short in eine Datei.
+ *  Writes a Little-Endian encoded short to a FILE.
  *
- *  @param[out] from  Pointer auf Quellshort
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  pointer to source short
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -40,12 +40,12 @@ int libendian::le_write_s(short from, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Little-Endian kodierten Unsigned Short in eine Datei.
+ *  Writes a Little-Endian encoded unsigned short to a FILE.
  *
- *  @param[out] from  Pointer auf Quellshort
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  pointer to source short
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -54,29 +54,25 @@ int libendian::le_write_us(unsigned short from, FILE* file)
     if(file == NULL)
         return -1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
-        // ja, dann tauschen
         from = swap_us(from);
     }
 
-    // Integer einlesen
     if(fwrite(&from, 1, 2, file) != 2)
         return 1;
 
-    // alles ok
     return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Big-Endian kodierten Short in eine Datei.
+ *  Writes a Big-Endian encoded short to a FILE.
  *
- *  @param[out] from  Pointer auf Quellshort
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  pointer to source short
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -87,12 +83,12 @@ int libendian::be_write_s(short from, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Big-Endian kodierten Unsigned Short in eine Datei.
+ *  Writes a Big-Endian encoded unsigned short to a FILE.
  *
- *  @param[out] from  Pointer auf Quellshort
- *  @param[in]  file  Datei in die geschrieben werden soll
+ *  @param[out] from  pointer to source short
+ *  @param[in]  file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -101,17 +97,13 @@ int libendian::be_write_us(unsigned short from, FILE* file)
     if(file == NULL)
         return -1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != BIG_ENDIAN)
     {
-        // ja, dann tauschen
         from = swap_us(from);
     }
 
-    // Integer einlesen
     if(fwrite(&from, 1, 2, file) != 2)
         return 1;
 
-    // alles ok
     return 0;
 }

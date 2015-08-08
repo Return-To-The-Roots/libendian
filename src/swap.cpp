@@ -24,11 +24,11 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  Vertauscht die Bytes eines Shorts.
+ *  Swaps the bytes of a short.
  *
- *  @param[in] s der Short der umgedreht werden soll
+ *  @param[in] s short to swap
  *
- *  @return den vertauschten Short
+ *  @return swapped short
  *
  *  @author FloSoft
  */
@@ -39,11 +39,11 @@ short libendian::swap_s(short s)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  Vertauscht die Bytes eines Unsigned Shorts.
+ *  Swaps the bytes of an unsigned short.
  *
- *  @param[in] us der Unsigned Short der umgedreht werden soll
+ *  @param[in] us unsigned short to swap
  *
- *  @return den vertauschten Unsigned Short
+ *  @return swapped unsigned short
  *
  *  @author FloSoft
  */
@@ -61,11 +61,11 @@ unsigned short libendian::swap_us(unsigned short us)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  Vertauscht die Bytes eines Ints.
+ *  Swaps the bytes of an int.
  *
- *  @param[in] s der Int der umgedreht werden soll
+ *  @param[in] i int to swap
  *
- *  @return den vertauschten Int
+ *  @return swapped int
  *
  *  @author FloSoft
  */
@@ -76,11 +76,11 @@ int libendian::swap_i(int i)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  Vertauscht die Bytes eines Unsigned Ints.
+ *  Swaps the bytes of an unsigned int.
  *
- *  @param[in] us der Unsigned Int der umgedreht werden soll
+ *  @param[in] ui unsigned int to swap
  *
- *  @return den vertauschten Unsigned Int
+ *  @return swapped unsigned int
  *
  *  @author FloSoft
  */

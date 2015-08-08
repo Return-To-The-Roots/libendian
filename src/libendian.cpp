@@ -25,8 +25,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 /** @namespace libendian
  *
- *  Hilfreich zum Einlesen von diversen Daten - welche in den verschiedenen
- *  Endianen vorliegen.
+ *  Useful to read various files of different endianness.
  *
  *  @author FloSoft
  */
