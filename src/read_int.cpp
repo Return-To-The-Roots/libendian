@@ -58,7 +58,7 @@ int libendian::le_read_ui(unsigned int* to, FILE* file)
     if(fread(to, 1, 4, file) != 4)
         return 1;
 
-    // müssen wir konvertieren?
+    // mÃ¼ssen wir konvertieren?
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
         // ja, dann tauschen
@@ -105,7 +105,7 @@ int libendian::be_read_ui(unsigned int* to, FILE* file)
     if(fread(to, 1, 4, file) != 4)
         return 1;
 
-    // müssen wir konvertieren?
+    // mÃ¼ssen wir konvertieren?
     if(BYTE_ORDER != BIG_ENDIAN)
     {
         // ja, dann tauschen

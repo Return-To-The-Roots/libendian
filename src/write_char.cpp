@@ -56,7 +56,7 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned int count, 
     if(from == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // chars kÃ¶nnen wir ohne Konvertierung einlesen
     return (int)fwrite(from, 1, count, file);
 }
 
@@ -94,6 +94,6 @@ int libendian::be_write_uc(const unsigned char* const from, unsigned int count, 
     if(from == NULL || file == NULL)
         return -1;
 
-    // chars können wir ohne Konvertierung einlesen
+    // chars kÃ¶nnen wir ohne Konvertierung einlesen
     return (int)fwrite(from, 1, count, file);
 }
