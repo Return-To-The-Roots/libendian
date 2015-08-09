@@ -24,12 +24,12 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest einen Little-Endian kodierten Integer aus einer Datei.
+ *  Reads a Little-Endian encoded int from a FILE.
  *
- *  @param[out] to    Pointer auf Zielinteger
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target int
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -40,12 +40,12 @@ int libendian::le_read_i(int* to, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest einen Little-Endian kodierten Unsigned Integer aus einer Datei.
+ *  Reads a Little-Endian encoded unsigned int from a FILE.
  *
- *  @param[out] to    Pointer auf Zielinteger
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target int
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -54,29 +54,25 @@ int libendian::le_read_ui(unsigned int* to, FILE* file)
     if(to == NULL || file == NULL)
         return -1;
 
-    // Integer einlesen
     if(fread(to, 1, 4, file) != 4)
         return 1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
-        // ja, dann tauschen
         *to = swap_ui(*to);
     }
 
-    // alles ok
     return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest einen Big-Endian kodierten Integer aus einer Datei.
+ *  Reads a Big-Endian encoded int from a FILE.
  *
- *  @param[out] to    Pointer auf Zielinteger
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target int
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -87,12 +83,12 @@ int libendian::be_read_i(int* to, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  liest einen Big-Endian kodierten Unsigned Integer aus einer Datei.
+ *  Reads a Big-Endian encoded unsigned int from a FILE.
  *
- *  @param[out] to    Pointer auf Zielinteger
- *  @param[in]  file  Datei aus der gelesen werden soll
+ *  @param[out] to    pointer to target int
+ *  @param[in]  file  file to read from
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -101,17 +97,13 @@ int libendian::be_read_ui(unsigned int* to, FILE* file)
     if(to == NULL || file == NULL)
         return -1;
 
-    // Integer einlesen
     if(fread(to, 1, 4, file) != 4)
         return 1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != BIG_ENDIAN)
     {
-        // ja, dann tauschen
         *to = swap_ui(*to);
     }
 
-    // alles ok
     return 0;
 }

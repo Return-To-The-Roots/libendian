@@ -11,9 +11,8 @@ make install
 
 -------------------------------------------------------------------------------
 
-Andere make-Ziele:
+Further make targets:
 
-make mrproper (räumt alles weg was kein Source und 
-               zur Erstellung notwendig ist)
+make mrproper (remove everything but the source code)
 
 -------------------------------------------------------------------------------

@@ -24,10 +24,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Little-Endian kodierten Integer in eine Datei.
+ *  Writes a Little-Endian encoded int to a FILE.
  *
- *  @param[in] from  Pointer auf Quellinteger
- *  @param[in] file  Datei aus der gelesen werden soll
+ *  @param[in] from  pointer to source int
+ *  @param[in] file  file to write to
  *
  *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
  *
@@ -40,12 +40,12 @@ int libendian::le_write_i(int from, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Little-Endian kodierten Unsigned Integer in eine Datei.
+ *  Writes a Little-Endian encoded unsigned int to a FILE.
  *
- *  @param[in] from  Pointer auf Quellinteger
- *  @param[in] file  Datei aus der gelesen werden soll
+ *  @param[in] from  pointer to source int
+ *  @param[in] file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -54,29 +54,25 @@ int libendian::le_write_ui(unsigned int from, FILE* file)
     if(file == NULL)
         return -1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
-        // ja, dann tauschen
         from = swap_ui(from);
     }
 
-    // Integer schreiben
     if(fwrite(&from, 1, 4, file) != 4)
         return 1;
 
-    // alles ok
     return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Big-Endian kodierten Integer in eine Datei.
+ *  Writes a Big-Endian encoded int to a FILE.
  *
- *  @param[in] from  Pointer auf Quellinteger
- *  @param[in] file  Datei aus der gelesen werden soll
+ *  @param[in] from  pointer to source int
+ *  @param[in] file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -87,12 +83,12 @@ int libendian::be_write_i(int from, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
- *  schreibt einen Big-Endian kodierten Unsigned Integer in eine Datei.
+ *  Writes a Big-Endian encoded unsigned int to a FILE.
  *
- *  @param[in] from  Pointer auf Quellinteger
- *  @param[in] file  Datei aus der gelesen werden soll
+ *  @param[in] from  pointer to source int
+ *  @param[in] file  file to write to
  *
- *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
+ *  @return 0 on success, other values on error
  *
  *  @author FloSoft
  */
@@ -101,17 +97,13 @@ int libendian::be_write_ui(unsigned int from, FILE* file)
     if(file == NULL)
         return -1;
 
-    // müssen wir konvertieren?
     if(BYTE_ORDER != BIG_ENDIAN)
     {
-        // ja, dann tauschen
         from = swap_ui(from);
     }
 
-    // Integer schreiben
     if(fwrite(&from, 1, 4, file) != 4)
         return 1;
 
-    // alles ok
     return 0;
 }
