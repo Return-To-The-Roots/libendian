@@ -30,7 +30,7 @@ namespace libendian{
         typedef ConvertEndianess<T_isBigEndian> Convert;
 
     public:
-        explicit EndianBaseStream(const std::string& filePath): stream_(filePath, std::ios_base::binary)
+        explicit EndianBaseStream(const std::string& filePath): stream_(filePath.c_str(), std::ios_base::binary)
         {
             stream_.imbue(std::locale::classic());
         }
@@ -67,6 +67,7 @@ namespace libendian{
     class EndianIStream: public EndianBaseStream<T_isBigEndian, T_Stream>
     {
         typedef EndianBaseStream<T_isBigEndian, T_Stream> Base;
+        typedef typename Base::Convert Convert;
     public:
         explicit EndianIStream(const std::string& filePath): Base(filePath)
         {}
@@ -108,7 +109,7 @@ namespace libendian{
         template<typename T>
         bool readNoExcept(T& value)
         {
-            if(!stream_.read(reinterpret_cast<char*>(&value), sizeof(T)))
+            if(!this->stream_.read(reinterpret_cast<char*>(&value), sizeof(T)))
                 return false;
             value = Convert::toNative(value);
             return true;
@@ -120,7 +121,7 @@ namespace libendian{
         template<typename T>
         bool readNoExcept(std::vector<T>& vec)
         {
-            for(std::vector<T>::iterator it = vec.begin(); it != vec.end(); ++it)
+            for(typename std::vector<T>::iterator it = vec.begin(); it != vec.end(); ++it)
             {
                 if(!readNoExcept(*it))
                     return false;
@@ -141,7 +142,7 @@ namespace libendian{
          */
         bool readNoExcept(char* buffer, size_t size)
         {
-            return !!stream_.read(buffer, size);
+            return !!this->stream_.read(buffer, size);
         }
 
         template<typename T>
@@ -167,17 +168,17 @@ namespace libendian{
 
         long getPosition()
         {
-            return static_cast<long>(stream_.tellg());
+            return static_cast<long>(this->stream_.tellg());
         }
 
         void setPosition(long position)
         {
-            stream_.seekg(position);
+            this->stream_.seekg(position);
         }
 
         void setPositionRel(long position)
         {
-            stream_.seekg(position, stream_.cur);
+            this->stream_.seekg(position, this->stream_.cur);
         }
 
     protected:
@@ -194,6 +195,7 @@ namespace libendian{
     class EndianOStream: public EndianBaseStream<T_isBigEndian, T_Stream>
     {
         typedef EndianBaseStream<T_isBigEndian, T_Stream> Base;
+        typedef typename Base::Convert Convert;
     public:
         explicit EndianOStream(const std::string& filePath): Base(filePath)
         {}
@@ -236,7 +238,7 @@ namespace libendian{
         bool writeNoExcept(const T& value)
         {
             const T valueFile = Convert::fromNative(value);
-            if(!stream_.write(reinterpret_cast<const char*>(&valueFile), sizeof(T)))
+            if(!this->stream_.write(reinterpret_cast<const char*>(&valueFile), sizeof(T)))
                 return false;
             return true;
         }
@@ -247,7 +249,7 @@ namespace libendian{
         template<typename T>
         bool writeNoExcept(const std::vector<T>& vec)
         {
-            for(std::vector<T>::const_iterator it = vec.begin(); it != vec.end(); ++it)
+            for(typename std::vector<T>::const_iterator it = vec.begin(); it != vec.end(); ++it)
             {
                 if(!writeNoExcept(*it))
                     return false;
@@ -268,7 +270,7 @@ namespace libendian{
          */
         bool writeNoExcept(const char* buffer, size_t size)
         {
-            return !!stream_.write(buffer, size);
+            return !!this->stream_.write(buffer, size);
         }
 
         template<typename T>
@@ -294,17 +296,17 @@ namespace libendian{
 
         long getPosition()
         {
-            return static_cast<long>(stream_.tellp());
+            return static_cast<long>(this->stream_.tellp());
         }
 
         void setPosition(long position)
         {
-            stream_.seekp(position);
+            this->stream_.seekp(position);
         }
 
         void setPositionRel(long position)
         {
-            stream_.seekp(position, stream_.cur);
+            this->stream_.seekp(position, this->stream_.cur);
         }
 
     protected:
