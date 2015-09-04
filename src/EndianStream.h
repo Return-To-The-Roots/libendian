@@ -39,7 +39,7 @@ namespace libendian{
         EndianBaseStream(T_Stream stream): stream_(stream)
         {}
 
-        typename boost::add_reference<T_Stream&>::type getStream()
+        typename boost::add_reference<T_Stream>::type getStream()
         {
             return stream_;
         }
