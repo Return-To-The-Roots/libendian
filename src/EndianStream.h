@@ -17,7 +17,7 @@
 
 #include "ConvertEndianess.h"
 #include "FileError.h"
-#include <iosfwd>
+#include <fstream>
 #include <vector>
 
 namespace libendian{
