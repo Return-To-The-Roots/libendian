@@ -19,7 +19,8 @@
 #include "FileError.h"
 #include <fstream>
 #include <vector>
-
+#include <boost/type_traits/add_reference.hpp>
+ 
 namespace libendian{
 
     template<bool T_isBigEndian, class T_Stream = std::ifstream>
@@ -38,7 +39,7 @@ namespace libendian{
         EndianBaseStream(T_Stream stream): stream_(stream)
         {}
 
-        T_Stream& getStream()
+        typename boost::add_reference<T_Stream&>::type getStream()
         {
             return stream_;
         }
