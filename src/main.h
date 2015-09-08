@@ -23,8 +23,21 @@
 #   include "../config.h"
 #endif // HAVE_CONFIG_H
 
-#include <cstdio>
-
-#include "endianess.h"
+#ifdef _WIN32
+#    define WIN32_LEAN_AND_MEAN
+#    ifdef _MSC_VER
+#        include <crtdbg.h>
+#        ifndef assert
+#            define assert _ASSERT
+#        endif
+#    else
+#        include <assert.h>
+#    endif
+#    ifdef _DEBUG
+#        include <crtdbg.h>
+#    endif // _WIN32 && _DEBUG
+#else
+#    include <assert.h>
+#endif // !_WIN32
 
 #endif // MAIN_H_INCLUDED

@@ -20,6 +20,7 @@
 #pragma once
 
 #include <cstdio>
+#include "endianess.h"
 
 /// Various Big and Little Endian functions.
 namespace libendian
