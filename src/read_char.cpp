@@ -72,7 +72,7 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
  */
 int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
 {
-    return be_read_uc( (unsigned char*)to, count, file);
+    return le_read_c( to, count, file);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -89,9 +89,5 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
  */
 int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* file)
 {
-    if(to == NULL || file == NULL)
-        return -1;
-
-    // no need to convert chars
-    return (int)fread(to, 1, count, file);
+    return le_read_uc(to, count, file);
 }
