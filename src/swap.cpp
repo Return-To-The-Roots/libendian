@@ -85,8 +85,8 @@ int libendian::swap_i(int i)
 unsigned int libendian::swap_ui(unsigned int ui)
 {
     static unsigned int z = 0;
-    unsigned char* zz = (unsigned char*)&z;
-    unsigned char* ss = (unsigned char*)&ui;
+    unsigned char* zz = (unsigned char*)&z; //-V206
+    unsigned char* ss = (unsigned char*)&ui; //-V206
 
     zz[3] = ss[0];
     zz[2] = ss[1];
