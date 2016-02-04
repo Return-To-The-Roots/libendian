@@ -87,7 +87,7 @@ int libendian::be_write_c(const char* const from, unsigned int count, FILE* file
  *
  *  @author FloSoft
  */
-int libendian::be_write_uc(const unsigned char* const from, unsigned int count, FILE* file)
+int libendian::be_write_uc(const unsigned char* const from, unsigned int count, FILE* file) //-V524
 {
     if(from == NULL || file == NULL)
         return -1;
