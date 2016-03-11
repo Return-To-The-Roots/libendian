@@ -282,14 +282,14 @@ namespace libendian{
         }
 
         template<size_t size>
-        EndianOStream& operator<<(char (&value)[size])
+        EndianOStream& operator<<(const char (&value)[size])
         {
             write(value, size);
             return *this;
         }
 
         template<size_t size>
-        EndianOStream& operator<<(unsigned char (&value)[size])
+        EndianOStream& operator<<(const unsigned char (&value)[size])
         {
             write(value, size);
             return *this;
