@@ -18,7 +18,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "libendian.h"
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes Little-Endian encoded chars to a FILE.
  *
@@ -35,7 +34,6 @@ int libendian::le_write_c(const char* const from, unsigned int count, FILE* file
     return le_write_uc( (const unsigned char*)from, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes Little-Endian encoded unsigned chars to a FILE.
  *
@@ -56,7 +54,6 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned int count, 
     return (int)fwrite(from, 1, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes Big-Endian encoded chars to a FILE.
  *
@@ -73,7 +70,6 @@ int libendian::be_write_c(const char* const from, unsigned int count, FILE* file
     return be_write_uc( (const unsigned char*)from, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes Big-Endian encoded unsigned chars to a FILE.
  *

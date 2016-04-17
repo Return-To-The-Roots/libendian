@@ -18,7 +18,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "libendian.h"
 
-///////////////////////////////////////////////////////////////////////////////
 /** @namespace libendian
  *
  *  Useful to read various files of different endianness.

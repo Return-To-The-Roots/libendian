@@ -18,7 +18,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "libendian.h"
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Swaps the bytes of a short.
  *
@@ -33,7 +32,6 @@ short libendian::swap_s(short s)
     return swap_us((unsigned short)s);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Swaps the bytes of an unsigned short.
  *
@@ -55,7 +53,6 @@ unsigned short libendian::swap_us(unsigned short us)
     return z;
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Swaps the bytes of an int.
  *
@@ -70,7 +67,6 @@ int libendian::swap_i(int i)
     return swap_ui((unsigned int)i);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Swaps the bytes of an unsigned int.
  *

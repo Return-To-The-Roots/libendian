@@ -18,7 +18,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "libendian.h"
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Reads Little-Endian encoded chars from a FILE.
  *
@@ -35,7 +34,6 @@ int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
     return le_read_uc( (unsigned char*)to, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Reads Little-Endian encoded unsigned chars from a FILE.
  *
@@ -56,7 +54,6 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
     return (int)fread(to, 1, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Reads Big-Endian encoded chars from a FILE.
  *
@@ -73,7 +70,6 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
     return le_read_c( to, count, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Reads Big-Endian encoded unsigned chars from a FILE.
  *

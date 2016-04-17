@@ -18,7 +18,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "libendian.h"
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes a Little-Endian encoded int to a FILE.
  *
@@ -34,7 +33,6 @@ int libendian::le_write_i(int from, FILE* file)
     return le_write_ui( (unsigned int)from, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes a Little-Endian encoded unsigned int to a FILE.
  *
@@ -61,7 +59,6 @@ int libendian::le_write_ui(unsigned int from, FILE* file)
     return 0;
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes a Big-Endian encoded int to a FILE.
  *
@@ -77,7 +74,6 @@ int libendian::be_write_i(int from, FILE* file)
     return be_write_ui( (unsigned int)from, file);
 }
 
-///////////////////////////////////////////////////////////////////////////////
 /**
  *  Writes a Big-Endian encoded unsigned int to a FILE.
  *
