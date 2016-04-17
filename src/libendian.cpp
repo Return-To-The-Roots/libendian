@@ -21,8 +21,6 @@
 /** @namespace libendian
  *
  *  Useful to read various files of different endianness.
- *
- *  @author FloSoft
  */
 
 ///////////////////////////////////////////////////////////////////////////////

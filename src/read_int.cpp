@@ -25,8 +25,6 @@
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::le_read_i(int* to, FILE* file)
 {
@@ -40,8 +38,6 @@ int libendian::le_read_i(int* to, FILE* file)
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::le_read_ui(unsigned int* to, FILE* file)
 {
@@ -66,8 +62,6 @@ int libendian::le_read_ui(unsigned int* to, FILE* file)
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::be_read_i(int* to, FILE* file)
 {
@@ -81,8 +75,6 @@ int libendian::be_read_i(int* to, FILE* file)
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::be_read_ui(unsigned int* to, FILE* file)
 {

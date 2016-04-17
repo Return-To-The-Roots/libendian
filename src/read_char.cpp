@@ -26,8 +26,6 @@
  *  @param[in]  file  file to read from
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
- *
- *  @author FloSoft
  */
 int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
 {
@@ -42,8 +40,6 @@ int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
  *  @param[in]  file  file to read from
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
- *
- *  @author FloSoft
  */
 int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* file)
 {
@@ -62,8 +58,6 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
  *  @param[in]  file  file to read from
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
- *
- *  @author FloSoft
  */
 int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
 {
@@ -78,8 +72,6 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
  *  @param[in]  file  file to read from
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
- *
- *  @author FloSoft
  */
 int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* file)
 {

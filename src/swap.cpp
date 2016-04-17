@@ -24,8 +24,6 @@
  *  @param[in] s short to swap
  *
  *  @return swapped short
- *
- *  @author FloSoft
  */
 short libendian::swap_s(short s)
 {
@@ -38,8 +36,6 @@ short libendian::swap_s(short s)
  *  @param[in] us unsigned short to swap
  *
  *  @return swapped unsigned short
- *
- *  @author FloSoft
  */
 unsigned short libendian::swap_us(unsigned short us)
 {
@@ -59,8 +55,6 @@ unsigned short libendian::swap_us(unsigned short us)
  *  @param[in] i int to swap
  *
  *  @return swapped int
- *
- *  @author FloSoft
  */
 int libendian::swap_i(int i)
 {
@@ -73,8 +67,6 @@ int libendian::swap_i(int i)
  *  @param[in] ui unsigned int to swap
  *
  *  @return swapped unsigned int
- *
- *  @author FloSoft
  */
 unsigned int libendian::swap_ui(unsigned int ui)
 {

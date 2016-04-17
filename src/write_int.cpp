@@ -25,8 +25,6 @@
  *  @param[in] file  file to write to
  *
  *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
- *
- *  @author FloSoft
  */
 int libendian::le_write_i(int from, FILE* file)
 {
@@ -40,8 +38,6 @@ int libendian::le_write_i(int from, FILE* file)
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::le_write_ui(unsigned int from, FILE* file)
 {
@@ -66,8 +62,6 @@ int libendian::le_write_ui(unsigned int from, FILE* file)
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::be_write_i(int from, FILE* file)
 {
@@ -81,8 +75,6 @@ int libendian::be_write_i(int from, FILE* file)
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
- *
- *  @author FloSoft
  */
 int libendian::be_write_ui(unsigned int from, FILE* file)
 {

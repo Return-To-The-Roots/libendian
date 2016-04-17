@@ -26,8 +26,6 @@
  *  @param[in]  file  file to write to
  *
  *  @return number of written bytes, -1 on error
- *
- *  @author FloSoft
  */
 int libendian::le_write_c(const char* const from, unsigned int count, FILE* file)
 {
@@ -42,8 +40,6 @@ int libendian::le_write_c(const char* const from, unsigned int count, FILE* file
  *  @param[in]  file  file to write to
  *
  *  @return number of written bytes, -1 on error
- *
- *  @author FloSoft
  */
 int libendian::le_write_uc(const unsigned char* const from, unsigned int count, FILE* file)
 {
@@ -62,8 +58,6 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned int count, 
  *  @param[in]  file  file to write to
  *
  *  @return number of written bytes, -1 on error
- *
- *  @author FloSoft
  */
 int libendian::be_write_c(const char* const from, unsigned int count, FILE* file)
 {
@@ -78,8 +72,6 @@ int libendian::be_write_c(const char* const from, unsigned int count, FILE* file
  *  @param[in]  file  file to write to
  *
  *  @return number of written bytes, -1 on error
- *
- *  @author FloSoft
  */
 int libendian::be_write_uc(const unsigned char* const from, unsigned int count, FILE* file) //-V524
 {
