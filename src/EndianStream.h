@@ -153,6 +153,14 @@ namespace libendian{
             return *this;
         }
 
+        template<typename T, size_t size>
+        EndianIStream& operator>>(T (&value)[size])
+        {
+            for(size_t i = 0; i < size; i++)
+                (*this) >> value[i];
+            return *this;
+        }
+
         template<size_t size>
         EndianIStream& operator>>(char (&value)[size])
         {
@@ -278,6 +286,14 @@ namespace libendian{
         EndianOStream& operator<<(const T& c)
         {
             write(c);
+            return *this;
+        }
+
+        template<typename T, size_t size>
+        EndianOStream& operator<<(const T (&value)[size])
+        {
+            for(size_t i = 0; i < size; i++)
+                (*this) << value[i];
             return *this;
         }
 
