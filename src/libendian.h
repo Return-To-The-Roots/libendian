@@ -29,43 +29,43 @@ namespace libendian
     short swap_s(short s);
     unsigned short swap_us(unsigned short us);
     int swap_i(int i);
-    unsigned int swap_ui(unsigned int ui);
+    unsigned swap_ui(unsigned ui);
 
 
     /// Read LE coded (unsigned) chars from a FILE.
-    int le_read_c(char* const to, unsigned int count, FILE* file);
-    int le_read_uc(unsigned char* const to, unsigned int count, FILE* file);
+    int le_read_c(char* const to, unsigned count, FILE* file);
+    int le_read_uc(unsigned char* const to, unsigned count, FILE* file);
 
     /// Write LE coded (unsigned) chars to a FILE.
-    int le_write_c(const char* const from, unsigned int count, FILE* file);
-    int le_write_uc(const unsigned char* const from, unsigned int count, FILE* file);
+    int le_write_c(const char* const from, unsigned count, FILE* file);
+    int le_write_uc(const unsigned char* const from, unsigned count, FILE* file);
 
 
     /// Read BE coded (unsigned) chars from a FILE.
-    int be_read_c(char* const to, unsigned int count, FILE* file);
-    int be_read_uc(unsigned char* const to, unsigned int count, FILE* file);
+    int be_read_c(char* const to, unsigned count, FILE* file);
+    int be_read_uc(unsigned char* const to, unsigned count, FILE* file);
 
     /// Write BE coded (unsigned) chars to a FILE.
-    int be_write_c(const char* const from, unsigned int count, FILE* file);
-    int be_write_uc(const unsigned char* const from, unsigned int count, FILE* file);
+    int be_write_c(const char* const from, unsigned count, FILE* file);
+    int be_write_uc(const unsigned char* const from, unsigned count, FILE* file);
 
 
     /// Read an LE coded (unsigned) int from a FILE.
     int le_read_i(int* to, FILE* file);
-    int le_read_ui(unsigned int* to, FILE* file);
+    int le_read_ui(unsigned* to, FILE* file);
 
     /// Write an LE coded (unsigned) int to a FILE.
     int le_write_i(int from, FILE* file);
-    int le_write_ui(unsigned int from, FILE* file);
+    int le_write_ui(unsigned from, FILE* file);
 
 
     /// Read a BE coded (unsigned) int from a FILE.
     int be_read_i(int* to, FILE* file);
-    int be_read_ui(unsigned int* to, FILE* file);
+    int be_read_ui(unsigned* to, FILE* file);
 
     /// Write a BE coded (unsigned) int to a FILE.
     int be_write_i(int to, FILE* file);
-    int be_write_ui(unsigned int to, FILE* file);
+    int be_write_ui(unsigned to, FILE* file);
 
 
     /// Read an LE coded (unsigned) short from a FILE.

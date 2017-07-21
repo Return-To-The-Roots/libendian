@@ -58,19 +58,19 @@ unsigned short libendian::swap_us(unsigned short us)
  */
 int libendian::swap_i(int i)
 {
-    return swap_ui((unsigned int)i);
+    return swap_ui((unsigned)i);
 }
 
 /**
- *  Swaps the bytes of an unsigned int.
+ *  Swaps the bytes of an unsigned.
  *
- *  @param[in] ui unsigned int to swap
+ *  @param[in] ui unsigned to swap
  *
- *  @return swapped unsigned int
+ *  @return swapped unsigned
  */
-unsigned int libendian::swap_ui(unsigned int ui)
+unsigned libendian::swap_ui(unsigned ui)
 {
-    static unsigned int z = 0;
+    static unsigned z = 0;
     unsigned char* zz = (unsigned char*)&z; //-V206
     unsigned char* ss = (unsigned char*)&ui; //-V206
 

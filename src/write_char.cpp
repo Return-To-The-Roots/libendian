@@ -27,7 +27,7 @@
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::le_write_c(const char* const from, unsigned int count, FILE* file)
+int libendian::le_write_c(const char* const from, unsigned count, FILE* file)
 {
     return le_write_uc( (const unsigned char*)from, count, file);
 }
@@ -41,7 +41,7 @@ int libendian::le_write_c(const char* const from, unsigned int count, FILE* file
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::le_write_uc(const unsigned char* const from, unsigned int count, FILE* file)
+int libendian::le_write_uc(const unsigned char* const from, unsigned count, FILE* file)
 {
     if(from == NULL || file == NULL)
         return -1;
@@ -59,7 +59,7 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned int count, 
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::be_write_c(const char* const from, unsigned int count, FILE* file)
+int libendian::be_write_c(const char* const from, unsigned count, FILE* file)
 {
     return be_write_uc( (const unsigned char*)from, count, file);
 }
@@ -73,7 +73,7 @@ int libendian::be_write_c(const char* const from, unsigned int count, FILE* file
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::be_write_uc(const unsigned char* const from, unsigned int count, FILE* file) //-V524
+int libendian::be_write_uc(const unsigned char* const from, unsigned count, FILE* file) //-V524
 {
     if(from == NULL || file == NULL)
         return -1;

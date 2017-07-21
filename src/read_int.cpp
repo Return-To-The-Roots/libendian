@@ -28,18 +28,18 @@
  */
 int libendian::le_read_i(int* to, FILE* file)
 {
-    return le_read_ui( (unsigned int*)to, file);
+    return le_read_ui( (unsigned*)to, file);
 }
 
 /**
- *  Reads a Little-Endian encoded unsigned int from a FILE.
+ *  Reads a Little-Endian encoded unsigned from a FILE.
  *
  *  @param[out] to    pointer to target int
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_read_ui(unsigned int* to, FILE* file)
+int libendian::le_read_ui(unsigned* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
@@ -65,18 +65,18 @@ int libendian::le_read_ui(unsigned int* to, FILE* file)
  */
 int libendian::be_read_i(int* to, FILE* file)
 {
-    return be_read_ui( (unsigned int*)to, file);
+    return be_read_ui( (unsigned*)to, file);
 }
 
 /**
- *  Reads a Big-Endian encoded unsigned int from a FILE.
+ *  Reads a Big-Endian encoded unsigned from a FILE.
  *
  *  @param[out] to    pointer to target int
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_read_ui(unsigned int* to, FILE* file)
+int libendian::be_read_ui(unsigned* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;

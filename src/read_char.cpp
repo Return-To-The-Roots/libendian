@@ -27,7 +27,7 @@
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
+int libendian::le_read_c(char* const to, unsigned count, FILE* file)
 {
     return le_read_uc( (unsigned char*)to, count, file);
 }
@@ -41,7 +41,7 @@ int libendian::le_read_c(char* const to, unsigned int count, FILE* file)
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* file)
+int libendian::le_read_uc(unsigned char* const to, unsigned count, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
@@ -59,7 +59,7 @@ int libendian::le_read_uc(unsigned char* const to, unsigned int count, FILE* fil
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
+int libendian::be_read_c(char* const to, unsigned count, FILE* file)
 {
     return le_read_c( to, count, file);
 }
@@ -73,7 +73,7 @@ int libendian::be_read_c(char* const to, unsigned int count, FILE* file)
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::be_read_uc(unsigned char* const to, unsigned int count, FILE* file)
+int libendian::be_read_uc(unsigned char* const to, unsigned count, FILE* file)
 {
     return le_read_uc(to, count, file);
 }

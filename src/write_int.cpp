@@ -28,18 +28,18 @@
  */
 int libendian::le_write_i(int from, FILE* file)
 {
-    return le_write_ui( (unsigned int)from, file);
+    return le_write_ui( (unsigned)from, file);
 }
 
 /**
- *  Writes a Little-Endian encoded unsigned int to a FILE.
+ *  Writes a Little-Endian encoded unsigned to a FILE.
  *
  *  @param[in] from  pointer to source int
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_write_ui(unsigned int from, FILE* file)
+int libendian::le_write_ui(unsigned from, FILE* file)
 {
     if(file == NULL)
         return -1;
@@ -65,18 +65,18 @@ int libendian::le_write_ui(unsigned int from, FILE* file)
  */
 int libendian::be_write_i(int from, FILE* file)
 {
-    return be_write_ui( (unsigned int)from, file);
+    return be_write_ui( (unsigned)from, file);
 }
 
 /**
- *  Writes a Big-Endian encoded unsigned int to a FILE.
+ *  Writes a Big-Endian encoded unsigned to a FILE.
  *
  *  @param[in] from  pointer to source int
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_write_ui(unsigned int from, FILE* file)
+int libendian::be_write_ui(unsigned from, FILE* file)
 {
     if(file == NULL)
         return -1;
