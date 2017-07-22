@@ -19,22 +19,19 @@
 
 namespace libendian{
 
-    /**
-     * Converts values to or from a given endianess
-     */
+    /// Static class providing the functions toNative/fromNative to convert
+    /// from/to big endian iff isBigEndian is true, from/to little endian otherwise
     template<bool T_isBigEndian = true>
     struct ConvertEndianess
     {
         template<typename T>
-        static T
-        toNative(T& value)
+        static T toNative(T& value)
         {
             return boost::endian::big_to_native(value);
         }
 
         template<typename T>
-        static T
-        fromNative(T& value)
+        static T fromNative(T& value)
         {
             return boost::endian::native_to_big(value);
         }
@@ -44,15 +41,13 @@ namespace libendian{
     struct ConvertEndianess<false>
     {
         template<typename T>
-        static T
-        toNative(T& value)
+        static T toNative(T& value)
         {
             return boost::endian::little_to_native(value);
         }
 
         template<typename T>
-        static T
-        fromNative(T& value)
+        static T fromNative(T& value)
         {
             return boost::endian::native_to_little(value);
         }
