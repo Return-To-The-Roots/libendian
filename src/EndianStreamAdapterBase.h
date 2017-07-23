@@ -43,12 +43,15 @@ namespace libendian{
         typedef T_Stream StreamType;
         typedef typename boost::add_reference<T_Stream>::type StreamRefType;
 
+        EndianStreamAdapterBase();
         explicit EndianStreamAdapterBase(T_Stream stream): stream_(stream){}
         /// Initialize stream with one argument (e.g. filepath)
         template<typename T_InitType>
         explicit EndianStreamAdapterBase(T_InitType& initArg): stream_(initArg) {}
         template<typename T_InitType>
         explicit EndianStreamAdapterBase(const T_InitType& initArg): stream_(initArg) {}
+        template<typename T_InitType, typename T_ArgType>
+        explicit EndianStreamAdapterBase(const T_InitType& initArg, const T_ArgType& arg): stream_(initArg, arg) {}
 
         /// Return the underlying stream as a reference
         StreamRefType getStream() { return stream_; }

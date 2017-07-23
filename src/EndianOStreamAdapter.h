@@ -40,11 +40,14 @@ namespace libendian{
         typedef EndianStreamAdapterBase<T_isBigEndian, T_Stream> Base;
         typedef typename Base::Convert Convert;
     public:
+        EndianOStreamAdapter();
         explicit EndianOStreamAdapter(T_Stream stream): Base(stream){}
         template<typename T_InitType>
         explicit EndianOStreamAdapter(T_InitType& initArg): Base(initArg) {}
         template<typename T_InitType>
         explicit EndianOStreamAdapter(const T_InitType& initArg): Base(initArg) {}
+        template<typename T_InitType, typename T_ArgType>
+        explicit EndianOStreamAdapter(const T_InitType& initArg, const T_ArgType& arg): Base(initArg, arg) {}
 
          /// Write a value and return true on success, false on error
          template<typename T>
