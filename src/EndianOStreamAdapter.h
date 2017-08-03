@@ -59,17 +59,24 @@ namespace libendian{
          {
              // Optimization for single byte values -> no endianess change, just write it
              if(sizeof(T) == 1)
-                 return !!this->stream_.write(reinterpret_cast<const char*>(buffer), numValues * sizeof(T));
+                 return writeRaw(buffer, numValues);
 
              for(size_t i = 0; i < numValues; ++i, ++buffer)
              {
                  const T tmp = Convert::fromNative(*buffer);
-                 if(!this->stream_.write(reinterpret_cast<const char*>(&tmp), sizeof(T)))
+                 if(!writeRaw(&tmp, 1))
                      return false;
              }
              return true;
          }
 
+         /// Write a buffer with the given number of elements without conversion
+         template<typename T>
+         bool writeRaw(const T* buffer, size_t numValues)
+         {
+             return !!this->stream_.write(reinterpret_cast<const char*>(buffer), numValues * sizeof(T));
+         }
+         
          template<typename T>
          typename boost::enable_if< boost::is_arithmetic<T>, EndianOStreamAdapter >::type& operator<<(const T& value)
          {

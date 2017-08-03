@@ -57,12 +57,21 @@ namespace libendian{
         template<typename T>
         bool read(T* buffer, size_t numValues)
         {
-            if(!this->stream_.read(reinterpret_cast<char*>(buffer), numValues * sizeof(T)))
+            if(!readRaw(buffer, numValues))
                 return false;
             if(sizeof(T) == 1)
                 return true;
             for(size_t i = 0; i < numValues; ++i, ++buffer)
                 *buffer = Convert::toNative(*buffer);
+            return true;
+        }
+
+        /// Read a buffer with the given number of elements without converting it
+        template<typename T>
+        bool readRaw(T* buffer, size_t numValues)
+        {
+            if(!this->stream_.read(reinterpret_cast<char*>(buffer), numValues * sizeof(T)))
+                return false;
             return true;
         }
 
