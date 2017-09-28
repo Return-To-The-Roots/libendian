@@ -29,7 +29,7 @@
  */
 int libendian::le_read_c(char* const to, unsigned count, FILE* file)
 {
-    return le_read_uc( (unsigned char*)to, count, file);
+    return le_read_uc((unsigned char*)to, count, file);
 }
 
 /**
@@ -61,7 +61,7 @@ int libendian::le_read_uc(unsigned char* const to, unsigned count, FILE* file)
  */
 int libendian::be_read_c(char* const to, unsigned count, FILE* file)
 {
-    return le_read_c( to, count, file);
+    return le_read_c(to, count, file);
 }
 
 /**

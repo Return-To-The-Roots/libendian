@@ -28,7 +28,7 @@
  */
 int libendian::le_write_i(int from, FILE* file)
 {
-    return le_write_ui( (unsigned)from, file);
+    return le_write_ui((unsigned)from, file);
 }
 
 /**
@@ -65,7 +65,7 @@ int libendian::le_write_ui(unsigned from, FILE* file)
  */
 int libendian::be_write_i(int from, FILE* file)
 {
-    return be_write_ui( (unsigned)from, file);
+    return be_write_ui((unsigned)from, file);
 }
 
 /**

@@ -28,7 +28,7 @@
  */
 int libendian::le_write_s(short from, FILE* file)
 {
-    return le_write_us( (unsigned short)from, file);
+    return le_write_us((unsigned short)from, file);
 }
 
 /**
@@ -65,7 +65,7 @@ int libendian::le_write_us(unsigned short from, FILE* file)
  */
 int libendian::be_write_s(short from, FILE* file)
 {
-    return be_write_us( (unsigned short)from, file);
+    return be_write_us((unsigned short)from, file);
 }
 
 /**

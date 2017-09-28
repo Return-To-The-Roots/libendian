@@ -28,7 +28,7 @@
  */
 int libendian::le_read_i(int* to, FILE* file)
 {
-    return le_read_ui( (unsigned*)to, file);
+    return le_read_ui((unsigned*)to, file);
 }
 
 /**
@@ -65,7 +65,7 @@ int libendian::le_read_ui(unsigned* to, FILE* file)
  */
 int libendian::be_read_i(int* to, FILE* file)
 {
-    return be_read_ui( (unsigned*)to, file);
+    return be_read_ui((unsigned*)to, file);
 }
 
 /**

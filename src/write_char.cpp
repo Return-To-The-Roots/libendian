@@ -29,7 +29,7 @@
  */
 int libendian::le_write_c(const char* const from, unsigned count, FILE* file)
 {
-    return le_write_uc( (const unsigned char*)from, count, file);
+    return le_write_uc((const unsigned char*)from, count, file);
 }
 
 /**
@@ -61,7 +61,7 @@ int libendian::le_write_uc(const unsigned char* const from, unsigned count, FILE
  */
 int libendian::be_write_c(const char* const from, unsigned count, FILE* file)
 {
-    return be_write_uc( (const unsigned char*)from, count, file);
+    return be_write_uc((const unsigned char*)from, count, file);
 }
 
 /**
