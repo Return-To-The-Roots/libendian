@@ -19,7 +19,7 @@
 #include "libendian.h"
 
 /**
- *  Writes Little-Endian encoded chars to a FILE.
+ *  Writes raw chars to a FILE.
  *
  *  @param[out] from  source buffer
  *  @param[in]  count number of symbols to write
@@ -27,13 +27,13 @@
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::le_write_c(const char* const from, unsigned count, FILE* file)
+int libendian::write(const char* const from, uint32_t count, FILE* file)
 {
-    return le_write_uc((const unsigned char*)from, count, file);
+    return write((const unsigned char*)from, count, file);
 }
 
 /**
- *  Writes Little-Endian encoded unsigned chars to a FILE.
+ *  Writes raw unsigned chars to a FILE.
  *
  *  @param[out] from  source buffer
  *  @param[in]  count number of symbols to write
@@ -41,43 +41,11 @@ int libendian::le_write_c(const char* const from, unsigned count, FILE* file)
  *
  *  @return number of written bytes, -1 on error
  */
-int libendian::le_write_uc(const unsigned char* const from, unsigned count, FILE* file)
+int libendian::write(const unsigned char* const from, uint32_t count, FILE* file) //-V524
 {
     if(from == NULL || file == NULL)
         return -1;
 
     // no need to convert chars
-    return (int)fwrite(from, 1, count, file);
-}
-
-/**
- *  Writes Big-Endian encoded chars to a FILE.
- *
- *  @param[out] from  source buffer
- *  @param[in]  count number of symbols to write
- *  @param[in]  file  file to write to
- *
- *  @return number of written bytes, -1 on error
- */
-int libendian::be_write_c(const char* const from, unsigned count, FILE* file)
-{
-    return be_write_uc((const unsigned char*)from, count, file);
-}
-
-/**
- *  Writes Big-Endian encoded unsigned chars to a FILE.
- *
- *  @param[out] from  source buffer
- *  @param[in]  count number of symbols to write
- *  @param[in]  file  file to write to
- *
- *  @return number of written bytes, -1 on error
- */
-int libendian::be_write_uc(const unsigned char* const from, unsigned count, FILE* file) //-V524
-{
-    if(from == NULL || file == NULL)
-        return -1;
-
-    // no need to convert chars
-    return (int)fwrite(from, 1, count, file);
+    return (int32_t)fwrite(from, 1, count, file);
 }

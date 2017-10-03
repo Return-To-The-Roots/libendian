@@ -19,27 +19,27 @@
 #include "libendian.h"
 
 /**
- *  Writes a Little-Endian encoded int to a FILE.
+ *  Writes a Little-Endian encoded int32_t to a FILE.
  *
- *  @param[in] from  pointer to source int
+ *  @param[in] from  pointer to source int32_t
  *  @param[in] file  file to write to
  *
  *  @return liefert Null bei Erfolg, ein Wert ungleich Null bei Fehler
  */
-int libendian::le_write_i(int from, FILE* file)
+int libendian::le_write_i(int32_t from, FILE* file)
 {
-    return le_write_ui((unsigned)from, file);
+    return le_write_ui((uint32_t)from, file);
 }
 
 /**
- *  Writes a Little-Endian encoded unsigned to a FILE.
+ *  Writes a Little-Endian encoded uint32_t to a FILE.
  *
- *  @param[in] from  pointer to source int
+ *  @param[in] from  pointer to source int32_t
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_write_ui(unsigned from, FILE* file)
+int libendian::le_write_ui(uint32_t from, FILE* file)
 {
     if(file == NULL)
         return -1;
@@ -56,27 +56,27 @@ int libendian::le_write_ui(unsigned from, FILE* file)
 }
 
 /**
- *  Writes a Big-Endian encoded int to a FILE.
+ *  Writes a Big-Endian encoded int32_t to a FILE.
  *
- *  @param[in] from  pointer to source int
+ *  @param[in] from  pointer to source int32_t
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_write_i(int from, FILE* file)
+int libendian::be_write_i(int32_t from, FILE* file)
 {
-    return be_write_ui((unsigned)from, file);
+    return be_write_ui((uint32_t)from, file);
 }
 
 /**
- *  Writes a Big-Endian encoded unsigned to a FILE.
+ *  Writes a Big-Endian encoded uint32_t to a FILE.
  *
- *  @param[in] from  pointer to source int
+ *  @param[in] from  pointer to source int32_t
  *  @param[in] file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_write_ui(unsigned from, FILE* file)
+int libendian::be_write_ui(uint32_t from, FILE* file)
 {
     if(file == NULL)
         return -1;

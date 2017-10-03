@@ -21,62 +21,55 @@
 
 #include "endianess.h"
 #include <cstdio>
+#include <stdint.h>
 
 /// Various Big and Little Endian functions.
 namespace libendian {
-/// Swap the bytes of (unsigned) shorts and ints.
-short swap_s(short s);
-unsigned short swap_us(unsigned short us);
-int swap_i(int i);
-unsigned swap_ui(unsigned ui);
+/// Swap the bytes of (uint32_t) int16_ts and ints.
+int16_t swap_s(int16_t s);
+uint16_t swap_us(uint16_t us);
+int32_t swap_i(int32_t i);
+uint32_t swap_ui(uint32_t ui);
 
-/// Read LE coded (unsigned) chars from a FILE.
-int le_read_c(char* const to, unsigned count, FILE* file);
-int le_read_uc(unsigned char* const to, unsigned count, FILE* file);
+/// Read raw chars from a FILE.
+int read(char* const to, uint32_t count, FILE* file);
+int read(unsigned char* const to, uint32_t count, FILE* file);
 
-/// Write LE coded (unsigned) chars to a FILE.
-int le_write_c(const char* const from, unsigned count, FILE* file);
-int le_write_uc(const unsigned char* const from, unsigned count, FILE* file);
+/// Write raw chars to a FILE.
+int write(const char* const from, uint32_t count, FILE* file);
+int write(const unsigned char* const from, uint32_t count, FILE* file);
 
-/// Read BE coded (unsigned) chars from a FILE.
-int be_read_c(char* const to, unsigned count, FILE* file);
-int be_read_uc(unsigned char* const to, unsigned count, FILE* file);
+/// Read an LE coded (uint32_t) int32_t from a FILE.
+int le_read_i(int32_t* to, FILE* file);
+int le_read_ui(uint32_t* to, FILE* file);
 
-/// Write BE coded (unsigned) chars to a FILE.
-int be_write_c(const char* const from, unsigned count, FILE* file);
-int be_write_uc(const unsigned char* const from, unsigned count, FILE* file);
+/// Write an LE coded (uint32_t) int32_t to a FILE.
+int le_write_i(int32_t from, FILE* file);
+int le_write_ui(uint32_t from, FILE* file);
 
-/// Read an LE coded (unsigned) int from a FILE.
-int le_read_i(int* to, FILE* file);
-int le_read_ui(unsigned* to, FILE* file);
+/// Read a BE coded (uint32_t) int32_t from a FILE.
+int be_read_i(int32_t* to, FILE* file);
+int be_read_ui(uint32_t* to, FILE* file);
 
-/// Write an LE coded (unsigned) int to a FILE.
-int le_write_i(int from, FILE* file);
-int le_write_ui(unsigned from, FILE* file);
+/// Write a BE coded (uint32_t) int32_t to a FILE.
+int be_write_i(int32_t to, FILE* file);
+int be_write_ui(uint32_t to, FILE* file);
 
-/// Read a BE coded (unsigned) int from a FILE.
-int be_read_i(int* to, FILE* file);
-int be_read_ui(unsigned* to, FILE* file);
+/// Read an LE coded (uint32_t) int16_t from a FILE.
+int le_read_s(int16_t* to, FILE* file);
+int le_read_us(uint16_t* to, FILE* file);
 
-/// Write a BE coded (unsigned) int to a FILE.
-int be_write_i(int to, FILE* file);
-int be_write_ui(unsigned to, FILE* file);
+/// Write an LE coded (uint32_t) int16_t to a FILE.
+int le_write_s(int16_t from, FILE* file);
+int le_write_us(uint16_t from, FILE* file);
 
-/// Read an LE coded (unsigned) short from a FILE.
-int le_read_s(short* to, FILE* file);
-int le_read_us(unsigned short* to, FILE* file);
+/// Read a BE coded (uint32_t) int16_t from a FILE.
+int be_read_s(int16_t* to, FILE* file);
+int be_read_us(uint16_t* to, FILE* file);
 
-/// Write an LE coded (unsigned) short to a FILE.
-int le_write_s(short from, FILE* file);
-int le_write_us(unsigned short from, FILE* file);
-
-/// Read a BE coded (unsigned) short from a FILE.
-int be_read_s(short* to, FILE* file);
-int be_read_us(unsigned short* to, FILE* file);
-
-/// Write a BE coded (unsigned) short to a FILE.
-int be_write_s(short from, FILE* file);
-int be_write_us(unsigned short from, FILE* file);
+/// Write a BE coded (uint32_t) int16_t to a FILE.
+int be_write_s(int16_t from, FILE* file);
+int be_write_us(uint16_t from, FILE* file);
 } // namespace libendian
 
 #endif // !LIBENDIAN_H_INCLUDED

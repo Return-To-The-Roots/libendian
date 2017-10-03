@@ -19,27 +19,27 @@
 #include "libendian.h"
 
 /**
- *  Reads a Little-Endian encoded short from a FILE.
+ *  Reads a Little-Endian encoded int16_t from a FILE.
  *
- *  @param[out] to    pointer to target short
+ *  @param[out] to    pointer to target int16_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_read_s(short* to, FILE* file)
+int libendian::le_read_s(int16_t* to, FILE* file)
 {
-    return le_read_us((unsigned short*)to, file);
+    return le_read_us((uint16_t*)to, file);
 }
 
 /**
- *  Reads a Little-Endian encoded unsigned short from a FILE.
+ *  Reads a Little-Endian encoded uint16_t from a FILE.
  *
- *  @param[out] to    pointer to target short
+ *  @param[out] to    pointer to target int16_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_read_us(unsigned short* to, FILE* file)
+int libendian::le_read_us(uint16_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
@@ -56,27 +56,27 @@ int libendian::le_read_us(unsigned short* to, FILE* file)
 }
 
 /**
- *  Reads a Big-Endian encoded short from a FILE.
+ *  Reads a Big-Endian encoded int16_t from a FILE.
  *
- *  @param[out] to    pointer to target short
+ *  @param[out] to    pointer to target int16_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_read_s(short* to, FILE* file)
+int libendian::be_read_s(int16_t* to, FILE* file)
 {
-    return be_read_us((unsigned short*)to, file);
+    return be_read_us((uint16_t*)to, file);
 }
 
 /**
- *  Reads a Big-Endian encoded unsigned short from a FILE.
+ *  Reads a Big-Endian encoded uint16_t from a FILE.
  *
- *  @param[out] to    pointer to target short
+ *  @param[out] to    pointer to target int16_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_read_us(unsigned short* to, FILE* file)
+int libendian::be_read_us(uint16_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;

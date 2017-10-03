@@ -27,13 +27,13 @@
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::le_read_c(char* const to, unsigned count, FILE* file)
+int libendian::read(char* const to, uint32_t count, FILE* file)
 {
-    return le_read_uc((unsigned char*)to, count, file);
+    return read((unsigned char*)to, count, file);
 }
 
 /**
- *  Reads Little-Endian encoded unsigned chars from a FILE.
+ *  Reads Little-Endian encoded uint32_t chars from a FILE.
  *
  *  @param[out] to    target buffer
  *  @param[in]  count number of symbols to read
@@ -41,39 +41,11 @@ int libendian::le_read_c(char* const to, unsigned count, FILE* file)
  *
  *  @return number of read bytes, -1 on error, 0 on EOF
  */
-int libendian::le_read_uc(unsigned char* const to, unsigned count, FILE* file)
+int libendian::read(unsigned char* const to, uint32_t count, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
 
     // no need to convert chars
-    return (int)fread(to, 1, count, file);
-}
-
-/**
- *  Reads Big-Endian encoded chars from a FILE.
- *
- *  @param[out] to    pointer to target buffer
- *  @param[in]  count number of symbols to read
- *  @param[in]  file  file to read from
- *
- *  @return number of read bytes, -1 on error, 0 on EOF
- */
-int libendian::be_read_c(char* const to, unsigned count, FILE* file)
-{
-    return le_read_c(to, count, file);
-}
-
-/**
- *  Reads Big-Endian encoded unsigned chars from a FILE.
- *
- *  @param[out] to    pointer to target buffer
- *  @param[in]  count number of symbols to read
- *  @param[in]  file  file to read from
- *
- *  @return number of read bytes, -1 on error, 0 on EOF
- */
-int libendian::be_read_uc(unsigned char* const to, unsigned count, FILE* file)
-{
-    return le_read_uc(to, count, file);
+    return (int32_t)fread(to, 1, count, file);
 }

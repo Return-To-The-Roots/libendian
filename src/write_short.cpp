@@ -19,27 +19,27 @@
 #include "libendian.h"
 
 /**
- *  Writes a Little-Endian encoded short to a FILE.
+ *  Writes a Little-Endian encoded int16_t to a FILE.
  *
- *  @param[out] from  pointer to source short
+ *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_write_s(short from, FILE* file)
+int libendian::le_write_s(int16_t from, FILE* file)
 {
-    return le_write_us((unsigned short)from, file);
+    return le_write_us((uint16_t)from, file);
 }
 
 /**
- *  Writes a Little-Endian encoded unsigned short to a FILE.
+ *  Writes a Little-Endian encoded uint16_t to a FILE.
  *
- *  @param[out] from  pointer to source short
+ *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_write_us(unsigned short from, FILE* file)
+int libendian::le_write_us(uint16_t from, FILE* file)
 {
     if(file == NULL)
         return -1;
@@ -56,27 +56,27 @@ int libendian::le_write_us(unsigned short from, FILE* file)
 }
 
 /**
- *  Writes a Big-Endian encoded short to a FILE.
+ *  Writes a Big-Endian encoded int16_t to a FILE.
  *
- *  @param[out] from  pointer to source short
+ *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_write_s(short from, FILE* file)
+int libendian::be_write_s(int16_t from, FILE* file)
 {
-    return be_write_us((unsigned short)from, file);
+    return be_write_us((uint16_t)from, file);
 }
 
 /**
- *  Writes a Big-Endian encoded unsigned short to a FILE.
+ *  Writes a Big-Endian encoded uint16_t to a FILE.
  *
- *  @param[out] from  pointer to source short
+ *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_write_us(unsigned short from, FILE* file)
+int libendian::be_write_us(uint16_t from, FILE* file)
 {
     if(file == NULL)
         return -1;

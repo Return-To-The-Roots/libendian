@@ -19,27 +19,27 @@
 #include "libendian.h"
 
 /**
- *  Swaps the bytes of a short.
+ *  Swaps the bytes of a int16_t.
  *
- *  @param[in] s short to swap
+ *  @param[in] s int16_t to swap
  *
- *  @return swapped short
+ *  @return swapped int16_t
  */
-short libendian::swap_s(short s)
+int16_t libendian::swap_s(int16_t s)
 {
-    return swap_us((unsigned short)s);
+    return swap_us((uint16_t)s);
 }
 
 /**
- *  Swaps the bytes of an unsigned short.
+ *  Swaps the bytes of an uint16_t.
  *
- *  @param[in] us unsigned short to swap
+ *  @param[in] us uint16_t to swap
  *
- *  @return swapped unsigned short
+ *  @return swapped uint16_t
  */
-unsigned short libendian::swap_us(unsigned short us)
+uint16_t libendian::swap_us(uint16_t us)
 {
-    static unsigned short z = 0;
+    static uint16_t z = 0;
     unsigned char* zz = (unsigned char*)&z;
     unsigned char* ss = (unsigned char*)&us;
 
@@ -50,27 +50,27 @@ unsigned short libendian::swap_us(unsigned short us)
 }
 
 /**
- *  Swaps the bytes of an int.
+ *  Swaps the bytes of an int32_t.
  *
- *  @param[in] i int to swap
+ *  @param[in] i int32_t to swap
  *
- *  @return swapped int
+ *  @return swapped int32_t
  */
-int libendian::swap_i(int i)
+int32_t libendian::swap_i(int32_t i)
 {
-    return swap_ui((unsigned)i);
+    return swap_ui((uint32_t)i);
 }
 
 /**
- *  Swaps the bytes of an unsigned.
+ *  Swaps the bytes of an uint32_t.
  *
- *  @param[in] ui unsigned to swap
+ *  @param[in] ui uint32_t to swap
  *
- *  @return swapped unsigned
+ *  @return swapped uint32_t
  */
-unsigned libendian::swap_ui(unsigned ui)
+uint32_t libendian::swap_ui(uint32_t ui)
 {
-    static unsigned z = 0;
+    static uint32_t z = 0;
     unsigned char* zz = (unsigned char*)&z;  //-V206
     unsigned char* ss = (unsigned char*)&ui; //-V206
 

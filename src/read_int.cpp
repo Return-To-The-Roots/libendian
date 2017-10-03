@@ -19,27 +19,27 @@
 #include "libendian.h"
 
 /**
- *  Reads a Little-Endian encoded int from a FILE.
+ *  Reads a Little-Endian encoded int32_t from a FILE.
  *
- *  @param[out] to    pointer to target int
+ *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_read_i(int* to, FILE* file)
+int libendian::le_read_i(int32_t* to, FILE* file)
 {
-    return le_read_ui((unsigned*)to, file);
+    return le_read_ui((uint32_t*)to, file);
 }
 
 /**
- *  Reads a Little-Endian encoded unsigned from a FILE.
+ *  Reads a Little-Endian encoded uint32_t from a FILE.
  *
- *  @param[out] to    pointer to target int
+ *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::le_read_ui(unsigned* to, FILE* file)
+int libendian::le_read_ui(uint32_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
@@ -56,27 +56,27 @@ int libendian::le_read_ui(unsigned* to, FILE* file)
 }
 
 /**
- *  Reads a Big-Endian encoded int from a FILE.
+ *  Reads a Big-Endian encoded int32_t from a FILE.
  *
- *  @param[out] to    pointer to target int
+ *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_read_i(int* to, FILE* file)
+int libendian::be_read_i(int32_t* to, FILE* file)
 {
-    return be_read_ui((unsigned*)to, file);
+    return be_read_ui((uint32_t*)to, file);
 }
 
 /**
- *  Reads a Big-Endian encoded unsigned from a FILE.
+ *  Reads a Big-Endian encoded uint32_t from a FILE.
  *
- *  @param[out] to    pointer to target int
+ *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
  *  @return 0 on success, other values on error
  */
-int libendian::be_read_ui(unsigned* to, FILE* file)
+int libendian::be_read_ui(uint32_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
         return -1;
