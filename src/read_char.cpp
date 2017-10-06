@@ -25,9 +25,9 @@
  *  @param[in]  count number of symbols to read
  *  @param[in]  file  file to read from
  *
- *  @return number of read bytes, -1 on error, 0 on EOF
+ *  @return true on success
  */
-int libendian::read(char* const to, uint32_t count, FILE* file)
+bool libendian::read(char* const to, uint32_t count, FILE* file)
 {
     return read((unsigned char*)to, count, file);
 }
@@ -39,13 +39,13 @@ int libendian::read(char* const to, uint32_t count, FILE* file)
  *  @param[in]  count number of symbols to read
  *  @param[in]  file  file to read from
  *
- *  @return number of read bytes, -1 on error, 0 on EOF
+ *  @return true on success
  */
-int libendian::read(unsigned char* const to, uint32_t count, FILE* file)
+bool libendian::read(unsigned char* const to, uint32_t count, FILE* file)
 {
     if(to == NULL || file == NULL)
-        return -1;
+        return false;
 
     // no need to convert chars
-    return (int32_t)fread(to, 1, count, file);
+    return fread(to, 1, count, file) == count;
 }

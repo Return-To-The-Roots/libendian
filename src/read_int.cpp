@@ -24,9 +24,9 @@
  *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::le_read_i(int32_t* to, FILE* file)
+bool libendian::le_read_i(int32_t* to, FILE* file)
 {
     return le_read_ui((uint32_t*)to, file);
 }
@@ -37,22 +37,22 @@ int libendian::le_read_i(int32_t* to, FILE* file)
  *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::le_read_ui(uint32_t* to, FILE* file)
+bool libendian::le_read_ui(uint32_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
-        return -1;
+        return false;
 
     if(fread(to, 1, 4, file) != 4)
-        return 1;
+        return false;
 
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
         *to = swap_ui(*to);
     }
 
-    return 0;
+    return true;
 }
 
 /**
@@ -61,9 +61,9 @@ int libendian::le_read_ui(uint32_t* to, FILE* file)
  *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::be_read_i(int32_t* to, FILE* file)
+bool libendian::be_read_i(int32_t* to, FILE* file)
 {
     return be_read_ui((uint32_t*)to, file);
 }
@@ -74,20 +74,20 @@ int libendian::be_read_i(int32_t* to, FILE* file)
  *  @param[out] to    pointer to target int32_t
  *  @param[in]  file  file to read from
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::be_read_ui(uint32_t* to, FILE* file)
+bool libendian::be_read_ui(uint32_t* to, FILE* file)
 {
     if(to == NULL || file == NULL)
-        return -1;
+        return false;
 
     if(fread(to, 1, 4, file) != 4)
-        return 1;
+        return false;
 
     if(BYTE_ORDER != BIG_ENDIAN)
     {
         *to = swap_ui(*to);
     }
 
-    return 0;
+    return true;
 }

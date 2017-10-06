@@ -24,9 +24,9 @@
  *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::le_write_s(int16_t from, FILE* file)
+bool libendian::le_write_s(int16_t from, FILE* file)
 {
     return le_write_us((uint16_t)from, file);
 }
@@ -37,12 +37,12 @@ int libendian::le_write_s(int16_t from, FILE* file)
  *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::le_write_us(uint16_t from, FILE* file)
+bool libendian::le_write_us(uint16_t from, FILE* file)
 {
     if(file == NULL)
-        return -1;
+        return false;
 
     if(BYTE_ORDER != LITTLE_ENDIAN)
     {
@@ -50,9 +50,9 @@ int libendian::le_write_us(uint16_t from, FILE* file)
     }
 
     if(fwrite(&from, 1, 2, file) != 2)
-        return 1;
+        return false;
 
-    return 0;
+    return true;
 }
 
 /**
@@ -61,9 +61,9 @@ int libendian::le_write_us(uint16_t from, FILE* file)
  *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::be_write_s(int16_t from, FILE* file)
+bool libendian::be_write_s(int16_t from, FILE* file)
 {
     return be_write_us((uint16_t)from, file);
 }
@@ -74,12 +74,12 @@ int libendian::be_write_s(int16_t from, FILE* file)
  *  @param[out] from  pointer to source int16_t
  *  @param[in]  file  file to write to
  *
- *  @return 0 on success, other values on error
+ *  @return true on success
  */
-int libendian::be_write_us(uint16_t from, FILE* file)
+bool libendian::be_write_us(uint16_t from, FILE* file)
 {
     if(file == NULL)
-        return -1;
+        return false;
 
     if(BYTE_ORDER != BIG_ENDIAN)
     {
@@ -87,7 +87,7 @@ int libendian::be_write_us(uint16_t from, FILE* file)
     }
 
     if(fwrite(&from, 1, 2, file) != 2)
-        return 1;
+        return false;
 
-    return 0;
+    return true;
 }

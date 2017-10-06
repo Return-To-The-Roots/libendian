@@ -32,44 +32,44 @@ int32_t swap_i(int32_t i);
 uint32_t swap_ui(uint32_t ui);
 
 /// Read raw chars from a FILE.
-int read(char* const to, uint32_t count, FILE* file);
-int read(unsigned char* const to, uint32_t count, FILE* file);
+bool read(char* const to, uint32_t count, FILE* file);
+bool read(unsigned char* const to, uint32_t count, FILE* file);
 
 /// Write raw chars to a FILE.
-int write(const char* const from, uint32_t count, FILE* file);
-int write(const unsigned char* const from, uint32_t count, FILE* file);
+bool write(const char* const from, uint32_t count, FILE* file);
+bool write(const unsigned char* const from, uint32_t count, FILE* file);
 
 /// Read an LE coded (uint32_t) int32_t from a FILE.
-int le_read_i(int32_t* to, FILE* file);
-int le_read_ui(uint32_t* to, FILE* file);
+bool le_read_i(int32_t* to, FILE* file);
+bool le_read_ui(uint32_t* to, FILE* file);
 
 /// Write an LE coded (uint32_t) int32_t to a FILE.
-int le_write_i(int32_t from, FILE* file);
-int le_write_ui(uint32_t from, FILE* file);
+bool le_write_i(int32_t from, FILE* file);
+bool le_write_ui(uint32_t from, FILE* file);
 
 /// Read a BE coded (uint32_t) int32_t from a FILE.
-int be_read_i(int32_t* to, FILE* file);
-int be_read_ui(uint32_t* to, FILE* file);
+bool be_read_i(int32_t* to, FILE* file);
+bool be_read_ui(uint32_t* to, FILE* file);
 
 /// Write a BE coded (uint32_t) int32_t to a FILE.
-int be_write_i(int32_t to, FILE* file);
-int be_write_ui(uint32_t to, FILE* file);
+bool be_write_i(int32_t to, FILE* file);
+bool be_write_ui(uint32_t to, FILE* file);
 
 /// Read an LE coded (uint32_t) int16_t from a FILE.
-int le_read_s(int16_t* to, FILE* file);
-int le_read_us(uint16_t* to, FILE* file);
+bool le_read_s(int16_t* to, FILE* file);
+bool le_read_us(uint16_t* to, FILE* file);
 
 /// Write an LE coded (uint32_t) int16_t to a FILE.
-int le_write_s(int16_t from, FILE* file);
-int le_write_us(uint16_t from, FILE* file);
+bool le_write_s(int16_t from, FILE* file);
+bool le_write_us(uint16_t from, FILE* file);
 
 /// Read a BE coded (uint32_t) int16_t from a FILE.
-int be_read_s(int16_t* to, FILE* file);
-int be_read_us(uint16_t* to, FILE* file);
+bool be_read_s(int16_t* to, FILE* file);
+bool be_read_us(uint16_t* to, FILE* file);
 
 /// Write a BE coded (uint32_t) int16_t to a FILE.
-int be_write_s(int16_t from, FILE* file);
-int be_write_us(uint16_t from, FILE* file);
+bool be_write_s(int16_t from, FILE* file);
+bool be_write_us(uint16_t from, FILE* file);
 } // namespace libendian
 
 #endif // !LIBENDIAN_H_INCLUDED

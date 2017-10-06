@@ -25,9 +25,9 @@
  *  @param[in]  count number of symbols to write
  *  @param[in]  file  file to write to
  *
- *  @return number of written bytes, -1 on error
+ *  @return true on success
  */
-int libendian::write(const char* const from, uint32_t count, FILE* file)
+bool libendian::write(const char* const from, uint32_t count, FILE* file)
 {
     return write((const unsigned char*)from, count, file);
 }
@@ -39,13 +39,13 @@ int libendian::write(const char* const from, uint32_t count, FILE* file)
  *  @param[in]  count number of symbols to write
  *  @param[in]  file  file to write to
  *
- *  @return number of written bytes, -1 on error
+ *  @return true on success
  */
-int libendian::write(const unsigned char* const from, uint32_t count, FILE* file) //-V524
+bool libendian::write(const unsigned char* const from, uint32_t count, FILE* file) //-V524
 {
     if(from == NULL || file == NULL)
-        return -1;
+        return false;
 
     // no need to convert chars
-    return (int32_t)fwrite(from, 1, count, file);
+    return fwrite(from, 1, count, file) == count;
 }
