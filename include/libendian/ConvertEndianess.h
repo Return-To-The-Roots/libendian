@@ -15,6 +15,10 @@
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
 
+#pragma once
+#ifndef ConvertEndianess_h__
+#define ConvertEndianess_h__
+
 #include <boost/endian/conversion.hpp>
 
 namespace libendian {
@@ -25,13 +29,13 @@ template<bool T_isBigEndian = true>
 struct ConvertEndianess
 {
     template<typename T>
-    static T toNative(T& value)
+    static T toNative(T value)
     {
         return boost::endian::big_to_native(value);
     }
 
     template<typename T>
-    static T fromNative(T& value)
+    static T fromNative(T value)
     {
         return boost::endian::native_to_big(value);
     }
@@ -41,16 +45,18 @@ template<>
 struct ConvertEndianess<false>
 {
     template<typename T>
-    static T toNative(T& value)
+    static T toNative(T value)
     {
         return boost::endian::little_to_native(value);
     }
 
     template<typename T>
-    static T fromNative(T& value)
+    static T fromNative(T value)
     {
         return boost::endian::native_to_little(value);
     }
 };
 
 } // namespace libendian
+
+#endif // ConvertEndianess_h__
