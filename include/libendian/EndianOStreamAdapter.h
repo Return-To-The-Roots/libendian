@@ -41,7 +41,6 @@ class EndianOStreamAdapter : public EndianStreamAdapterBase<T_isBigEndian, T_Str
     typedef typename Base::Convert Convert;
 
 public:
-    EndianOStreamAdapter();
     explicit EndianOStreamAdapter(T_Stream stream) : Base(stream) {}
     template<typename T_InitType>
     explicit EndianOStreamAdapter(T_InitType& initArg) : Base(initArg)
