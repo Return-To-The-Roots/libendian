@@ -27,9 +27,14 @@
  *
  *  @return true on success
  */
-bool libendian::write(const char* const from, uint32_t count, FILE* file)
+bool libendian::write(const char* from, uint32_t count, FILE* file)
 {
-    return write((const unsigned char*)from, count, file);
+    return write((const uint8_t*)from, count, file);
+}
+
+bool libendian::write(const int8_t* from, uint32_t count, FILE* file)
+{
+    return write((const uint8_t*)from, count, file);
 }
 
 /**
@@ -41,7 +46,7 @@ bool libendian::write(const char* const from, uint32_t count, FILE* file)
  *
  *  @return true on success
  */
-bool libendian::write(const unsigned char* const from, uint32_t count, FILE* file) //-V524
+bool libendian::write(const uint8_t* from, uint32_t count, FILE* file) //-V524
 {
     if(from == NULL || file == NULL)
         return false;

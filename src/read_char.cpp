@@ -27,13 +27,18 @@
  *
  *  @return true on success
  */
-bool libendian::read(char* const to, uint32_t count, FILE* file)
+bool libendian::read(char* to, uint32_t count, FILE* file)
 {
-    return read((unsigned char*)to, count, file);
+    return read((uint8_t*)to, count, file);
+}
+
+bool libendian::read(int8_t* to, uint32_t count, FILE* file)
+{
+    return read((uint8_t*)to, count, file);
 }
 
 /**
- *  Reads Little-Endian encoded uint32_t chars from a FILE.
+ *  Reads Little-Endian encoded uint8_t chars from a FILE.
  *
  *  @param[out] to    target buffer
  *  @param[in]  count number of symbols to read
@@ -41,7 +46,7 @@ bool libendian::read(char* const to, uint32_t count, FILE* file)
  *
  *  @return true on success
  */
-bool libendian::read(unsigned char* const to, uint32_t count, FILE* file)
+bool libendian::read(uint8_t* to, uint32_t count, FILE* file)
 {
     if(to == NULL || file == NULL)
         return false;

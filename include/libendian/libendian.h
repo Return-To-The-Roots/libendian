@@ -32,12 +32,14 @@ int32_t swap_i(int32_t i);
 uint32_t swap_ui(uint32_t ui);
 
 /// Read raw chars from a FILE.
-bool read(char* const to, uint32_t count, FILE* file);
-bool read(unsigned char* const to, uint32_t count, FILE* file);
+bool read(char* to, uint32_t count, FILE* file);
+bool read(uint8_t* to, uint32_t count, FILE* file);
+bool read(int8_t* to, uint32_t count, FILE* file);
 
 /// Write raw chars to a FILE.
-bool write(const char* const from, uint32_t count, FILE* file);
-bool write(const unsigned char* const from, uint32_t count, FILE* file);
+bool write(const char* from, uint32_t count, FILE* file);
+bool write(const uint8_t* from, uint32_t count, FILE* file);
+bool write(const int8_t* from, uint32_t count, FILE* file);
 
 /// Read an LE coded (uint32_t) int32_t from a FILE.
 bool le_read_i(int32_t* to, FILE* file);
