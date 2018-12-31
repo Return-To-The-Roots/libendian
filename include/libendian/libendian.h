@@ -19,17 +19,11 @@
 
 #pragma once
 
-#include "endianess.h"
 #include <cstdio>
 #include <stdint.h>
 
 /// Various Big and Little Endian functions.
 namespace libendian {
-/// Swap the bytes of (uint32_t) int16_ts and ints.
-int16_t swap_s(int16_t s);
-uint16_t swap_us(uint16_t us);
-int32_t swap_i(int32_t i);
-uint32_t swap_ui(uint32_t ui);
 
 /// Read raw chars from a FILE.
 bool read(char* to, uint32_t count, FILE* file);
