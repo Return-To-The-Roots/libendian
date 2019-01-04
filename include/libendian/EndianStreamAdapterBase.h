@@ -21,7 +21,7 @@
 #define EndianStreamAdapterBase_h__
 
 #include "ConvertEndianess.h"
-#include <boost/type_traits/add_reference.hpp>
+#include <type_traits>
 
 namespace libendian {
 
@@ -41,7 +41,7 @@ protected:
 
 public:
     typedef T_Stream StreamType;
-    typedef typename boost::add_reference<T_Stream>::type StreamRefType;
+    typedef std::add_lvalue_reference_t<T_Stream> StreamRefType;
 
     EndianStreamAdapterBase();
     explicit EndianStreamAdapterBase(T_Stream stream) : stream_(stream) {}

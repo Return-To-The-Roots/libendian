@@ -21,8 +21,8 @@
 #define EndianIStreamAdapter_h__
 
 #include "EndianStreamAdapterBase.h"
-#include <boost/type_traits/is_arithmetic.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <array>
+#include <type_traits>
 #include <vector>
 
 namespace libendian {
@@ -82,7 +82,7 @@ public:
     }
 
     template<typename T>
-    typename boost::enable_if<boost::is_arithmetic<T>, EndianIStreamAdapter>::type& operator>>(T& value)
+    std::enable_if_t<std::is_arithmetic<T>::value, EndianIStreamAdapter>& operator>>(T& value)
     {
         read(value);
         return *this;
@@ -92,6 +92,13 @@ public:
     EndianIStreamAdapter& operator>>(T (&value)[numValues])
     {
         read(value, numValues);
+        return *this;
+    }
+
+    template<typename T, size_t numValues>
+    EndianIStreamAdapter& operator>>(std::array<T, numValues>& value)
+    {
+        read(value.data(), numValues);
         return *this;
     }
 

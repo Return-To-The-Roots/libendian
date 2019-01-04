@@ -17,8 +17,7 @@
 
 #include "libendian.h"
 #include <boost/endian/conversion.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_integral.hpp>
+#include <type_traits>
 
 namespace libendian {
 /**
@@ -51,7 +50,7 @@ bool read(int8_t* to, uint32_t count, FILE* file)
  */
 bool read(uint8_t* to, uint32_t count, FILE* file)
 {
-    if(to == NULL || file == NULL)
+    if(to == nullptr || file == nullptr)
         return false;
 
     // no need to convert chars
@@ -61,8 +60,8 @@ bool read(uint8_t* to, uint32_t count, FILE* file)
 template<typename T>
 bool le_read(T* value, FILE* file)
 {
-    BOOST_STATIC_ASSERT_MSG(boost::is_integral<T>::value, "Need integral");
-    if(value == NULL || file == NULL)
+    static_assert(std::is_integral<T>::value, "Need integral");
+    if(value == nullptr || file == nullptr)
         return false;
 
     T tmp;
@@ -75,8 +74,8 @@ bool le_read(T* value, FILE* file)
 template<typename T>
 bool be_read(T* value, FILE* file)
 {
-    BOOST_STATIC_ASSERT_MSG(boost::is_integral<T>::value, "Need integral");
-    if(value == NULL || file == NULL)
+    static_assert(std::is_integral<T>::value, "Need integral");
+    if(value == nullptr || file == nullptr)
         return false;
 
     T tmp;
