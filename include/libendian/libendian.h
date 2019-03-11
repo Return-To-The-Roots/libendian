@@ -48,8 +48,8 @@ bool be_read_i(int32_t* to, FILE* file);
 bool be_read_ui(uint32_t* to, FILE* file);
 
 /// Write a BE coded (uint32_t) int32_t to a FILE.
-bool be_write_i(int32_t to, FILE* file);
-bool be_write_ui(uint32_t to, FILE* file);
+bool be_write_i(int32_t from, FILE* file);
+bool be_write_ui(uint32_t from, FILE* file);
 
 /// Read an LE coded (uint32_t) int16_t from a FILE.
 bool le_read_s(int16_t* to, FILE* file);
