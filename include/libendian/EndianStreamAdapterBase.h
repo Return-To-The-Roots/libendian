@@ -37,11 +37,11 @@ class EndianStreamAdapterBase
 {
 protected:
     T_Stream stream_;
-    typedef ConvertEndianess<T_isBigEndian> Convert;
+    using Convert = ConvertEndianess<T_isBigEndian>;
 
 public:
-    typedef T_Stream StreamType;
-    typedef std::add_lvalue_reference_t<T_Stream> StreamRefType;
+    using StreamType = T_Stream;
+    using StreamRefType = std::add_lvalue_reference_t<T_Stream>;
 
     EndianStreamAdapterBase();
     explicit EndianStreamAdapterBase(T_Stream stream) : stream_(stream) {}

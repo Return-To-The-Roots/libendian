@@ -37,8 +37,8 @@ namespace libendian {
 template<bool T_isBigEndian, class T_Stream>
 class EndianOStreamAdapter : public EndianStreamAdapterBase<T_isBigEndian, T_Stream>
 {
-    typedef EndianStreamAdapterBase<T_isBigEndian, T_Stream> Base;
-    typedef typename Base::Convert Convert;
+    using Base = EndianStreamAdapterBase<T_isBigEndian, T_Stream>;
+    using Convert = typename Base::Convert;
 
 public:
     explicit EndianOStreamAdapter(T_Stream stream) : Base(stream) {}
