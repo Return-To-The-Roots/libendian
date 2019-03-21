@@ -72,6 +72,12 @@ public:
         return true;
     }
 
+    template<typename T, size_t T_numValues>
+    bool read(std::array<T, T_numValues>& buffer)
+    {
+        return read(buffer.data(), T_numValues);
+    }
+
     /// Read a buffer with the given number of elements without converting it
     template<typename T>
     bool readRaw(T* buffer, size_t numValues)

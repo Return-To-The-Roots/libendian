@@ -19,8 +19,9 @@
 
 #pragma once
 
+#include <array>
+#include <cstdint>
 #include <cstdio>
-#include <stdint.h>
 
 /// Various Big and Little Endian functions.
 namespace libendian {
@@ -29,11 +30,23 @@ namespace libendian {
 bool read(char* to, uint32_t count, FILE* file);
 bool read(uint8_t* to, uint32_t count, FILE* file);
 bool read(int8_t* to, uint32_t count, FILE* file);
+template<typename T, size_t size>
+bool read(std::array<T, size>& to, FILE* file)
+{
+    static_assert(sizeof(T) == 1, "Only for byte sized types!");
+    return read(to.data(), to.size(), file);
+}
 
 /// Write raw chars to a FILE.
 bool write(const char* from, uint32_t count, FILE* file);
 bool write(const uint8_t* from, uint32_t count, FILE* file);
 bool write(const int8_t* from, uint32_t count, FILE* file);
+template<typename T, size_t size>
+bool write(const std::array<T, size>& from, FILE* file)
+{
+    static_assert(sizeof(T) == 1, "Only for byte sized types!");
+    return write(from.data(), from.size(), file);
+}
 
 /// Read an LE coded (uint32_t) int32_t from a FILE.
 bool le_read_i(int32_t* to, FILE* file);
