@@ -82,9 +82,7 @@ public:
     template<typename T>
     bool readRaw(T* buffer, size_t numValues)
     {
-        if(!this->stream_.read(reinterpret_cast<char*>(buffer), numValues * sizeof(T)))
-            return false;
-        return true;
+        return !!this->stream_.read(reinterpret_cast<char*>(buffer), numValues * sizeof(T));
     }
 
     template<typename T>
