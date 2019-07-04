@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(libendian)
+
+include(RttrBoostCfg)
 find_package(Boost 1.64.0 REQUIRED)
 
 include(EnableWarnings)
@@ -21,7 +23,6 @@ enable_warnings(endian_interface)
 add_library(endian_static STATIC EXCLUDE_FROM_ALL ${_sources} ${_headers})
 add_library(endian::static ALIAS endian_static)
 
-target_include_directories(endian_static PRIVATE include/libendian)
 target_link_libraries(endian_static PUBLIC endian_interface)
 set_target_properties(endian_static PROPERTIES CXX_EXTENSIONS OFF)
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,13 +14,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-
-#ifndef EndianStreamAdapterO_h__
-#define EndianStreamAdapterO_h__
+#ifndef libendian_include_libendian_EndianOStreamAdapter_h
+#define libendian_include_libendian_EndianOStreamAdapter_h
 
 #include "EndianStreamAdapterBase.h"
+
 #include <array>
 #include <type_traits>
 #include <vector>
@@ -41,15 +43,27 @@ class EndianOStreamAdapter : public EndianStreamAdapterBase<T_isBigEndian, T_Str
     using Convert = typename Base::Convert;
 
 public:
-    explicit EndianOStreamAdapter(T_Stream stream) : Base(stream) {}
-    template<typename T_InitType>
-    explicit EndianOStreamAdapter(T_InitType& initArg) : Base(initArg)
+    explicit
+    EndianOStreamAdapter(T_Stream stream)
+        : Base(stream)
     {}
+
     template<typename T_InitType>
-    explicit EndianOStreamAdapter(const T_InitType& initArg) : Base(initArg)
+    explicit
+    EndianOStreamAdapter(T_InitType& initArg)
+        : Base(initArg)
     {}
+
+    template<typename T_InitType>
+    explicit
+    EndianOStreamAdapter(const T_InitType& initArg)
+        : Base(initArg)
+    {}
+
     template<typename T_InitType, typename T_ArgType>
-    explicit EndianOStreamAdapter(const T_InitType& initArg, const T_ArgType& arg) : Base(initArg, arg)
+    explicit
+    EndianOStreamAdapter(const T_InitType& initArg, const T_ArgType& arg)
+        : Base(initArg, arg)
     {}
 
     /// Write a value and return true on success, false on error
@@ -65,14 +79,19 @@ public:
     {
         // Optimization for single byte values -> no endianess change, just write it
         if(sizeof(T) == 1)
+        {
             return writeRaw(buffer, numValues);
+        }
 
         for(size_t i = 0; i < numValues; ++i, ++buffer)
         {
             const T tmp = Convert::fromNative(*buffer);
             if(!writeRaw(&tmp, 1))
+            {
                 return false;
+            }
         }
+
         return true;
     }
 
@@ -104,23 +123,39 @@ public:
         return *this;
     }
 
-    long getPosition() { return static_cast<long>(this->stream_.tellp()); }
+    long getPosition()
+    {
+        return static_cast<long>(this->stream_.tellp());
+    }
 
-    void setPosition(long position) { this->stream_.seekp(position); }
+    void setPosition(long position)
+    {
+        this->stream_.seekp(position);
+    }
 
-    void setPositionRel(long position) { this->stream_.seekp(position, this->stream_.cur); }
+    void setPositionRel(long position)
+    {
+        this->stream_.seekp(position, this->stream_.cur);
+    }
 };
 
 /// Overload for reading a vector of values
 template<bool T_isBigEndian, class T_Stream, typename T>
-EndianOStreamAdapter<T_isBigEndian, T_Stream>& operator<<(EndianOStreamAdapter<T_isBigEndian, T_Stream>& os, const std::vector<T>& vec)
+EndianOStreamAdapter<T_isBigEndian, T_Stream>& operator<<(
+          EndianOStreamAdapter<T_isBigEndian, T_Stream>& os
+        , const std::vector<T>& vec
+    )
 {
     if(vec.empty())
+    {
         return os;
+    }
+
     os.write(&vec[0], vec.size());
+
     return os;
 }
 
 } // namespace libendian
 
-#endif // EndianStreamAdapterO_h__
+#endif // !libendian_include_libendian_EndianOStreamAdapter_h

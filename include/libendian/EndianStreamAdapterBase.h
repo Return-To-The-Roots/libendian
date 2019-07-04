@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,13 +14,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-
-#ifndef EndianStreamAdapterBase_h__
-#define EndianStreamAdapterBase_h__
+#ifndef libendian_include_libendian_EndianStreamAdapterBase_h
+#define libendian_include_libendian_EndianStreamAdapterBase_h
 
 #include "ConvertEndianess.h"
+
 #include <type_traits>
 
 namespace libendian {
@@ -44,24 +46,47 @@ public:
     using StreamRefType = std::add_lvalue_reference_t<T_Stream>;
 
     EndianStreamAdapterBase();
-    explicit EndianStreamAdapterBase(T_Stream stream) : stream_(stream) {}
+
+    explicit
+    EndianStreamAdapterBase(T_Stream stream)
+        : stream_(stream)
+    {}
+
     /// Initialize stream with one argument (e.g. filepath)
     template<typename T_InitType>
-    explicit EndianStreamAdapterBase(T_InitType& initArg) : stream_(initArg)
+    explicit
+    EndianStreamAdapterBase(T_InitType& initArg)
+        : stream_(initArg)
     {}
+
     template<typename T_InitType>
-    explicit EndianStreamAdapterBase(const T_InitType& initArg) : stream_(initArg)
+    explicit
+    EndianStreamAdapterBase(const T_InitType& initArg)
+        : stream_(initArg)
     {}
+
     template<typename T_InitType, typename T_ArgType>
-    explicit EndianStreamAdapterBase(const T_InitType& initArg, const T_ArgType& arg) : stream_(initArg, arg)
+    explicit
+    EndianStreamAdapterBase(const T_InitType& initArg, const T_ArgType& arg)
+        : stream_(initArg, arg)
     {}
 
     /// Return the underlying stream as a reference
-    StreamRefType getStream() { return stream_; }
+    StreamRefType getStream()
+    {
+        return stream_;
+    }
 
-    bool operator!() const { return !stream_; }
+    bool operator!() const
+    {
+        return !stream_;
+    }
 
-    bool eof() { return stream_.eof(); }
+    bool eof()
+    {
+        return stream_.eof();
+    }
+
     /// Skip the number of bytes and return *this for chaining
     EndianStreamAdapterBase& ignore(size_t size)
     {
@@ -69,6 +94,7 @@ public:
         return *this;
     }
 };
+
 } // namespace libendian
 
-#endif // EndianStreamAdapterBase_h__
+#endif // !libendian_include_libendian_EndianStreamAdapterBase_h

@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,13 +14,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-
-#ifndef EndianIStreamAdapter_h__
-#define EndianIStreamAdapter_h__
+#ifndef libendian_include_libendian_EndianIStreamAdapter_h
+#define libendian_include_libendian_EndianIStreamAdapter_h
 
 #include "EndianStreamAdapterBase.h"
+
 #include <array>
 #include <type_traits>
 #include <vector>
@@ -41,15 +43,27 @@ class EndianIStreamAdapter : public EndianStreamAdapterBase<T_isBigEndian, T_Str
     using Convert = typename Base::Convert;
 
 public:
-    explicit EndianIStreamAdapter(T_Stream stream) : Base(stream) {}
-    template<typename T_InitType>
-    explicit EndianIStreamAdapter(T_InitType& initArg) : Base(initArg)
+    explicit
+    EndianIStreamAdapter(T_Stream stream)
+        : Base(stream)
     {}
+
     template<typename T_InitType>
-    explicit EndianIStreamAdapter(const T_InitType& initArg) : Base(initArg)
+    explicit
+    EndianIStreamAdapter(T_InitType& initArg)
+        : Base(initArg)
     {}
+
+    template<typename T_InitType>
+    explicit
+    EndianIStreamAdapter(const T_InitType& initArg)
+        : Base(initArg)
+    {}
+
     template<typename T_InitType, typename T_ArgType>
-    explicit EndianIStreamAdapter(const T_InitType& initArg, const T_ArgType& arg) : Base(initArg, arg)
+    explicit
+    EndianIStreamAdapter(const T_InitType& initArg, const T_ArgType& arg)
+        : Base(initArg, arg)
     {}
 
     /// Read a value and return true on success, false on error
@@ -64,11 +78,20 @@ public:
     bool read(T* buffer, size_t numValues)
     {
         if(!readRaw(buffer, numValues))
+        {
             return false;
+        }
+
         if(sizeof(T) == 1)
+        {
             return true;
+        }
+
         for(size_t i = 0; i < numValues; ++i, ++buffer)
+        {
             *buffer = Convert::toNative(*buffer);
+        }
+
         return true;
     }
 
@@ -106,24 +129,39 @@ public:
         return *this;
     }
 
-    long getPosition() { return static_cast<long>(this->stream_.tellg()); }
+    long getPosition()
+    {
+        return static_cast<long>(this->stream_.tellg());
+    }
 
-    void setPosition(long position) { this->stream_.seekg(position); }
+    void setPosition(long position)
+    {
+        this->stream_.seekg(position);
+    }
 
-    void setPositionRel(long position) { this->stream_.seekg(position, this->stream_.cur); }
+    void setPositionRel(long position)
+    {
+        this->stream_.seekg(position, this->stream_.cur);
+    }
 };
 
 } // namespace libendian
 
 /// Overload for reading a vector of values
 template<bool T_isBigEndian, class T_Stream, typename T>
-libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& operator>>(libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& is,
-                                                                     std::vector<T>& vec)
+libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& operator>>(
+          libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& is
+        , std::vector<T>& vec
+    )
 {
     if(vec.empty())
+    {
         return is;
+    }
+
     is.read(&vec[0], vec.size());
+
     return is;
 }
 
-#endif // EndianIStreamAdapter_h__
+#endif // !libendian_include_libendian_EndianIStreamAdapter_h

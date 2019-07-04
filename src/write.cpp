@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,12 +14,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
-#include "libendian.h"
+#include "libendian/libendian.h"
+
 #include <boost/endian/conversion.hpp>
 #include <type_traits>
 
 namespace libendian {
+
 /**
  *  Writes raw chars to a FILE.
  *
@@ -51,7 +55,9 @@ bool write(const int8_t* from, uint32_t count, FILE* file)
 bool write(const uint8_t* from, uint32_t count, FILE* file) //-V524
 {
     if(from == nullptr || file == nullptr)
+    {
         return false;
+    }
 
     // no need to convert chars
     return fwrite(from, 1, count, file) == count;
@@ -61,8 +67,12 @@ template<typename T>
 bool le_write(T value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
+    
     if(!file)
+    {
         return false;
+    }
+    
     boost::endian::native_to_little_inplace(value);
 
     return fwrite(&value, sizeof(value), 1, file) == 1;
@@ -72,8 +82,12 @@ template<typename T>
 bool be_write(T value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
+    
     if(!file)
+    {
         return false;
+    }
+    
     boost::endian::native_to_big_inplace(value);
 
     return fwrite(&value, sizeof(value), 1, file) == 1;
@@ -182,4 +196,5 @@ bool be_write_ui(uint32_t from, FILE* file)
 {
     return be_write(from, file);
 }
+
 } // namespace libendian

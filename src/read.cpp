@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,12 +14,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
-#include "libendian.h"
+#include "libendian/libendian.h"
+
 #include <boost/endian/conversion.hpp>
 #include <type_traits>
 
 namespace libendian {
+
 /**
  *  Reads Little-Endian encoded chars from a FILE.
  *
@@ -61,13 +65,20 @@ template<typename T>
 bool le_read(T* value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
+    
     if(value == nullptr || file == nullptr)
+    {
         return false;
+    }
 
     T tmp;
     if(fread(&tmp, sizeof(T), 1, file) != 1)
+    {
         return false;
+    }
+    
     *value = boost::endian::little_to_native(tmp);
+    
     return true;
 }
 
@@ -75,13 +86,20 @@ template<typename T>
 bool be_read(T* value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
+    
     if(value == nullptr || file == nullptr)
+    {
         return false;
+    }
 
     T tmp;
     if(fread(&tmp, sizeof(T), 1, file) != 1)
+    {
         return false;
+    }
+    
     *value = boost::endian::big_to_native(tmp);
+    
     return true;
 }
 
@@ -188,4 +206,5 @@ bool be_read_ui(uint32_t* to, FILE* file)
 {
     return be_read(to, file);
 }
+
 } // namespace libendian

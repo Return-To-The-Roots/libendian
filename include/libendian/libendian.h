@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,8 +14,12 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
-#ifndef LIBENDIAN_H_INCLUDED
-#define LIBENDIAN_H_INCLUDED
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+#pragma once
+#ifndef libendian_include_libendian_libendian_h
+#define libendian_include_libendian_libendian_h
 
 #pragma once
 
@@ -30,6 +34,7 @@ namespace libendian {
 bool read(char* to, uint32_t count, FILE* file);
 bool read(uint8_t* to, uint32_t count, FILE* file);
 bool read(int8_t* to, uint32_t count, FILE* file);
+
 template<typename T, size_t size>
 bool read(std::array<T, size>& to, FILE* file)
 {
@@ -41,6 +46,7 @@ bool read(std::array<T, size>& to, FILE* file)
 bool write(const char* from, uint32_t count, FILE* file);
 bool write(const uint8_t* from, uint32_t count, FILE* file);
 bool write(const int8_t* from, uint32_t count, FILE* file);
+
 template<typename T, size_t size>
 bool write(const std::array<T, size>& from, FILE* file)
 {
@@ -79,6 +85,7 @@ bool be_read_us(uint16_t* to, FILE* file);
 /// Write a BE coded (uint32_t) int16_t to a FILE.
 bool be_write_s(int16_t from, FILE* file);
 bool be_write_us(uint16_t from, FILE* file);
+
 } // namespace libendian
 
-#endif // !LIBENDIAN_H_INCLUDED
+#endif // !!libendian_include_libendian_libendian_h

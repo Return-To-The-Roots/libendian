@@ -1,4 +1,4 @@
-// Copyright (c) 2005 - 2017 Settlers Freaks (sf-team at siedler25.org)
+// Copyright (c) 2005 - 2019 Settlers Freaks (sf-team at siedler25.org)
 //
 // This file is part of Return To The Roots.
 //
@@ -14,28 +14,32 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Return To The Roots. If not, see <http://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-#ifndef ConvertEndianess_h__
-#define ConvertEndianess_h__
+#ifndef libendian_include_libendian_ConvertEndianess_h
+#define libendian_include_libendian_ConvertEndianess_h
 
 #include <boost/endian/conversion.hpp>
 
 namespace libendian {
 
 /// Static class providing the functions toNative/fromNative to convert
-/// from/to big endian iff isBigEndian is true, from/to little endian otherwise
+/// from/to big endian if isBigEndian is true, from/to little endian otherwise
 template<bool T_isBigEndian = true>
 struct ConvertEndianess
 {
     template<typename T>
-    static T toNative(T value)
+    static
+    T toNative(T value)
     {
         return boost::endian::big_to_native(value);
     }
 
     template<typename T>
-    static T fromNative(T value)
+    static
+    T fromNative(T value)
     {
         return boost::endian::native_to_big(value);
     }
@@ -45,13 +49,15 @@ template<>
 struct ConvertEndianess<false>
 {
     template<typename T>
-    static T toNative(T value)
+    static
+    T toNative(T value)
     {
         return boost::endian::little_to_native(value);
     }
 
     template<typename T>
-    static T fromNative(T value)
+    static
+    T fromNative(T value)
     {
         return boost::endian::native_to_little(value);
     }
@@ -59,4 +65,4 @@ struct ConvertEndianess<false>
 
 } // namespace libendian
 
-#endif // ConvertEndianess_h__
+#endif // !libendian_include_libendian_ConvertEndianess_h
