@@ -34,45 +34,27 @@ public:
 
     EndianStreamAdapterBase();
 
-    explicit
-    EndianStreamAdapterBase(T_Stream stream)
-        : stream_(stream)
-    {}
+    explicit EndianStreamAdapterBase(T_Stream stream) : stream_(stream) {}
 
     /// Initialize stream with one argument (e.g. filepath)
     template<typename T_InitType>
-    explicit
-    EndianStreamAdapterBase(T_InitType& initArg)
-        : stream_(initArg)
+    explicit EndianStreamAdapterBase(T_InitType& initArg) : stream_(initArg)
     {}
 
     template<typename T_InitType>
-    explicit
-    EndianStreamAdapterBase(const T_InitType& initArg)
-        : stream_(initArg)
+    explicit EndianStreamAdapterBase(const T_InitType& initArg) : stream_(initArg)
     {}
 
     template<typename T_InitType, typename T_ArgType>
-    explicit
-    EndianStreamAdapterBase(const T_InitType& initArg, const T_ArgType& arg)
-        : stream_(initArg, arg)
+    explicit EndianStreamAdapterBase(const T_InitType& initArg, const T_ArgType& arg) : stream_(initArg, arg)
     {}
 
     /// Return the underlying stream as a reference
-    StreamRefType getStream()
-    {
-        return stream_;
-    }
+    StreamRefType getStream() { return stream_; }
 
-    bool operator!() const
-    {
-        return !stream_;
-    }
+    bool operator!() const { return !stream_; }
 
-    bool eof()
-    {
-        return stream_.eof();
-    }
+    bool eof() { return stream_.eof(); }
 
     /// Skip the number of bytes and return *this for chaining
     EndianStreamAdapterBase& ignore(size_t size)

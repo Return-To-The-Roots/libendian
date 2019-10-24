@@ -30,27 +30,18 @@ class EndianOStreamAdapter : public EndianStreamAdapterBase<T_isBigEndian, T_Str
     using Convert = typename Base::Convert;
 
 public:
-    explicit
-    EndianOStreamAdapter(T_Stream stream)
-        : Base(stream)
+    explicit EndianOStreamAdapter(T_Stream stream) : Base(stream) {}
+
+    template<typename T_InitType>
+    explicit EndianOStreamAdapter(T_InitType& initArg) : Base(initArg)
     {}
 
     template<typename T_InitType>
-    explicit
-    EndianOStreamAdapter(T_InitType& initArg)
-        : Base(initArg)
-    {}
-
-    template<typename T_InitType>
-    explicit
-    EndianOStreamAdapter(const T_InitType& initArg)
-        : Base(initArg)
+    explicit EndianOStreamAdapter(const T_InitType& initArg) : Base(initArg)
     {}
 
     template<typename T_InitType, typename T_ArgType>
-    explicit
-    EndianOStreamAdapter(const T_InitType& initArg, const T_ArgType& arg)
-        : Base(initArg, arg)
+    explicit EndianOStreamAdapter(const T_InitType& initArg, const T_ArgType& arg) : Base(initArg, arg)
     {}
 
     /// Write a value and return true on success, false on error
@@ -110,28 +101,16 @@ public:
         return *this;
     }
 
-    long getPosition()
-    {
-        return static_cast<long>(this->stream_.tellp());
-    }
+    long getPosition() { return static_cast<long>(this->stream_.tellp()); }
 
-    void setPosition(long position)
-    {
-        this->stream_.seekp(position);
-    }
+    void setPosition(long position) { this->stream_.seekp(position); }
 
-    void setPositionRel(long position)
-    {
-        this->stream_.seekp(position, this->stream_.cur);
-    }
+    void setPositionRel(long position) { this->stream_.seekp(position, this->stream_.cur); }
 };
 
 /// Overload for reading a vector of values
 template<bool T_isBigEndian, class T_Stream, typename T>
-EndianOStreamAdapter<T_isBigEndian, T_Stream>& operator<<(
-          EndianOStreamAdapter<T_isBigEndian, T_Stream>& os
-        , const std::vector<T>& vec
-    )
+EndianOStreamAdapter<T_isBigEndian, T_Stream>& operator<<(EndianOStreamAdapter<T_isBigEndian, T_Stream>& os, const std::vector<T>& vec)
 {
     if(vec.empty())
     {

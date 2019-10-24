@@ -18,15 +18,13 @@ template<bool T_isBigEndian = true>
 struct ConvertEndianess
 {
     template<typename T>
-    static
-    T toNative(T value)
+    static T toNative(T value)
     {
         return boost::endian::big_to_native(value);
     }
 
     template<typename T>
-    static
-    T fromNative(T value)
+    static T fromNative(T value)
     {
         return boost::endian::native_to_big(value);
     }
@@ -36,15 +34,13 @@ template<>
 struct ConvertEndianess<false>
 {
     template<typename T>
-    static
-    T toNative(T value)
+    static T toNative(T value)
     {
         return boost::endian::little_to_native(value);
     }
 
     template<typename T>
-    static
-    T fromNative(T value)
+    static T fromNative(T value)
     {
         return boost::endian::native_to_little(value);
     }

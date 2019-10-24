@@ -52,7 +52,7 @@ template<typename T>
 bool le_read(T* value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
-    
+
     if(value == nullptr || file == nullptr)
     {
         return false;
@@ -63,9 +63,9 @@ bool le_read(T* value, FILE* file)
     {
         return false;
     }
-    
+
     *value = boost::endian::little_to_native(tmp);
-    
+
     return true;
 }
 
@@ -73,7 +73,7 @@ template<typename T>
 bool be_read(T* value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
-    
+
     if(value == nullptr || file == nullptr)
     {
         return false;
@@ -84,9 +84,9 @@ bool be_read(T* value, FILE* file)
     {
         return false;
     }
-    
+
     *value = boost::endian::big_to_native(tmp);
-    
+
     return true;
 }
 

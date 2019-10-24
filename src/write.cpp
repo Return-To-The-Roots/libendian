@@ -54,12 +54,12 @@ template<typename T>
 bool le_write(T value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
-    
+
     if(!file)
     {
         return false;
     }
-    
+
     boost::endian::native_to_little_inplace(value);
 
     return fwrite(&value, sizeof(value), 1, file) == 1;
@@ -69,12 +69,12 @@ template<typename T>
 bool be_write(T value, FILE* file)
 {
     static_assert(std::is_integral<T>::value, "Need integral");
-    
+
     if(!file)
     {
         return false;
     }
-    
+
     boost::endian::native_to_big_inplace(value);
 
     return fwrite(&value, sizeof(value), 1, file) == 1;
