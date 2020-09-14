@@ -5,8 +5,6 @@
 //
 
 #pragma once
-#ifndef libendian_include_libendian_EndianIStreamAdapter_h
-#define libendian_include_libendian_EndianIStreamAdapter_h
 
 #include "EndianStreamAdapterBase.h"
 
@@ -130,5 +128,3 @@ libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& operator>>(libendian::
 
     return is;
 }
-
-#endif // !libendian_include_libendian_EndianIStreamAdapter_h

@@ -5,10 +5,6 @@
 //
 
 #pragma once
-#ifndef libendian_include_libendian_libendian_h
-#define libendian_include_libendian_libendian_h
-
-#pragma once
 
 #include <array>
 #include <cstdint>
@@ -74,5 +70,3 @@ bool be_write_s(int16_t from, FILE* file);
 bool be_write_us(uint16_t from, FILE* file);
 
 } // namespace libendian
-
-#endif // !!libendian_include_libendian_libendian_h

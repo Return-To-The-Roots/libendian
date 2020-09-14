@@ -5,8 +5,6 @@
 //
 
 #pragma once
-#ifndef libendian_include_libendian_ConvertEndianess_h
-#define libendian_include_libendian_ConvertEndianess_h
 
 #include <boost/endian/conversion.hpp>
 
@@ -47,5 +45,3 @@ struct ConvertEndianess<false>
 };
 
 } // namespace libendian
-
-#endif // !libendian_include_libendian_ConvertEndianess_h

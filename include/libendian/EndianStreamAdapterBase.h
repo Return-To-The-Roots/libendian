@@ -5,8 +5,6 @@
 //
 
 #pragma once
-#ifndef libendian_include_libendian_EndianStreamAdapterBase_h
-#define libendian_include_libendian_EndianStreamAdapterBase_h
 
 #include "ConvertEndianess.h"
 
@@ -65,5 +63,3 @@ public:
 };
 
 } // namespace libendian
-
-#endif // !libendian_include_libendian_EndianStreamAdapterBase_h
