@@ -116,8 +116,8 @@ public:
 
 /// Overload for reading a vector of values
 template<bool T_isBigEndian, class T_Stream, typename T>
-libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& operator>>(libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& is,
-                                                                     std::vector<T>& vec)
+libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>&
+operator>>(libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& is, std::vector<T>& vec)
 {
     if(vec.empty())
     {
