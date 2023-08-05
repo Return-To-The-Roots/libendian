@@ -21,7 +21,7 @@ add_library(endian::interface ALIAS endian_interface)
 
 target_include_directories(endian_interface INTERFACE include)
 target_link_libraries(endian_interface INTERFACE Boost::boost)
-target_compile_features(endian_interface INTERFACE cxx_std_14)
+target_compile_features(endian_interface INTERFACE cxx_std_17)
 
 enable_warnings(endian_interface)
 
