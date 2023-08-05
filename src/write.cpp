@@ -53,7 +53,7 @@ bool write(const uint8_t* from, uint32_t count, FILE* file) //-V524
 template<typename T>
 bool le_write(T value, FILE* file)
 {
-    static_assert(std::is_integral<T>::value, "Need integral");
+    static_assert(std::is_integral_v<T>, "Need integral");
 
     if(!file)
     {
@@ -68,7 +68,7 @@ bool le_write(T value, FILE* file)
 template<typename T>
 bool be_write(T value, FILE* file)
 {
-    static_assert(std::is_integral<T>::value, "Need integral");
+    static_assert(std::is_integral_v<T>, "Need integral");
 
     if(!file)
     {

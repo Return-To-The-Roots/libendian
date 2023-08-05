@@ -51,7 +51,7 @@ bool read(uint8_t* to, uint32_t count, FILE* file)
 template<typename T>
 bool le_read(T* value, FILE* file)
 {
-    static_assert(std::is_integral<T>::value, "Need integral");
+    static_assert(std::is_integral_v<T>, "Need integral");
 
     if(value == nullptr || file == nullptr)
     {
@@ -72,7 +72,7 @@ bool le_read(T* value, FILE* file)
 template<typename T>
 bool be_read(T* value, FILE* file)
 {
-    static_assert(std::is_integral<T>::value, "Need integral");
+    static_assert(std::is_integral_v<T>, "Need integral");
 
     if(value == nullptr || file == nullptr)
     {
