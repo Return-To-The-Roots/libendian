@@ -116,7 +116,7 @@ EndianOStreamAdapter<T_isBigEndian, T_Stream>& operator<<(EndianOStreamAdapter<T
         return os;
     }
 
-    os.write(&vec[0], vec.size());
+    os.write(vec.data(), vec.size());
 
     return os;
 }
