@@ -124,7 +124,7 @@ operator>>(libendian::EndianIStreamAdapter<T_isBigEndian, T_Stream>& is, std::ve
         return is;
     }
 
-    is.read(&vec[0], vec.size());
+    is.read(vec.data(), vec.size());
 
     return is;
 }
